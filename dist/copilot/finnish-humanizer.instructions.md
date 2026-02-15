@@ -1,17 +1,6 @@
 ---
-name: finnish-humanizer
-description: Tunnistaa ja poistaa AI-generoidun suomenkielisen tekstin tunnusmerkit. Tekee tekstistä luonnollisempaa ja ihmisen kirjoittaman kuuloista. Käytä kun käyttäjä pyytää luonnollistamaan, humanisoimaan tai poistamaan AI-tuntua suomenkielisestä tekstistä. Tunnistaa 26 patternia ja 4 tyylimerkintää.
-license: MIT
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Glob
-  - Grep
-  - AskUserQuestion
-metadata:
-  author: Hakku
-  version: 1.0.0
+applyTo: "**/*.md,**/*.txt"
+description: Tunnistaa ja poistaa AI-generoidun suomenkielisen tekstin tunnusmerkit. Tekee tekstistä luonnollisempaa ja ihmisen kirjoittaman kuuloista.
 ---
 
 # Finnish Humanizer
@@ -77,7 +66,7 @@ Käsittele suoraan. Palauta luonnollistettu teksti + muutosyhteenveto.
 <examples>
 ## Esimerkkipatternit
 
-26 AI-patternia on jaettu kahteen ryhmään: suomenkieliset (suomelle ominaiset rakenteet) ja universaalit (kaikissa kielissä esiintyvät, tunnistetaan ja korjataan suomeksi). Alla 7 kanonista esimerkkiä. Täysi 26 kategorian patternilista: ks. references/patterns.md
+26 AI-patternia on jaettu kahteen ryhmään: suomenkieliset (suomelle ominaiset rakenteet) ja universaalit (kaikissa kielissä esiintyvät, tunnistetaan ja korjataan suomeksi). Alla 7 kanonista esimerkkiä. Täysi 26 kategorian patternilista: https://github.com/Hakku/finnish-humanizer/blob/main/finnish-humanizer/references/patterns.md
 
 ### Suomenkieliset patternit
 

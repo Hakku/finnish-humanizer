@@ -1,54 +1,62 @@
 # Finnish Humanizer
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/Hakku/finnish-humanizer/releases)
+[![Platforms](https://img.shields.io/badge/platforms-Claude%20%7C%20Cursor%20%7C%20Copilot-purple.svg)](#asennus)
+
 Tunnistaa ja poistaa AI-generoidun suomenkielisen tekstin tunnusmerkit. Tekee tekstistä luonnollisempaa ja ihmisen kirjoittaman kuuloista.
 
-## Kenelle
+## Ongelma
 
-Kaikille jotka tuottavat suomenkielistä tekstiä AI:n avulla ja haluavat lopputuloksen kuulostavan ihmiseltä: markkinointi, journalismi, dokumentaatio, viestintä.
+AI-generoitu suomi on tunnistettavaa: passiivin ylikäyttö, puuttuvat partikkelit, käännösrakenteet, mielistelevä sävy. Nämä patternit toistuvat kaikissa LLM:issä ja tekevät tekstistä robottimaisen.
 
-## Mitä skill tunnistaa
+## Ratkaisu
 
-26 AI-patternia jaettuna kahteen ryhmään:
+26 AI-patternia (12 suomenkielistä + 14 universaalia) ja 4 tyylimerkintää, joiden avulla teksti muunnetaan luonnolliseksi suomeksi. Ei käännä, ei yksinkertaista — poistaa vain AI-tunnusmerkit ja tuo kirjoittajan äänen esiin.
 
-**Suomenkieliset (1–12):** Passiivin ylikäyttö, nominaalirakenteet, pronominien ylikäyttö, puuttuvat partikkelit, käännösrakenteet, genetiiviketjut, adjektiivikasaumat, ylipitkät virkkeet, joka/jotka-kasautuminen, virkakielisyys, astevaihtelun välttely, liiallinen kohteliaisuus.
+**Ennen:**
+> Tämä on erittäin merkittävä kehitysaskel, joka tulee vaikuttamaan laajasti alan tulevaisuuteen. On syytä huomata, että kyseinen innovaatio tarjoaa lukuisia mahdollisuuksia eri sidosryhmille.
 
-**Universaalit suomeksi (13–26):** Merkittävyyden liioittelu, mainosmainen kieli, mielistelevä sävy, liiallinen varautuminen, täytesanat, geneerinen lopetus, epämääräiset viittaukset, "haasteista huolimatta" -kaava, kolmen sääntö ja synonyymikierto, partisiippirakenteet, kopulan välttely, negatiivinen rinnastus, keinotekoiset skaalaviittaukset, tietokatkos-vastuuvapauslausekkeet.
-
-**4 tyylimerkintää:** Lihavoinnin ylikäyttö, emojit, "Otsikko:" -listaus, kaarevat lainausmerkit.
+**Jälkeen:**
+> Iso juttu alalle. Tästä hyötyvät monet.
 
 Täysi patternilista esimerkkeineen: [`finnish-humanizer/references/patterns.md`](finnish-humanizer/references/patterns.md)
 
 ## Asennus
 
-### Claude.ai (ZIP-upload)
-
-1. [Lataa `finnish-humanizer.zip`](https://github.com/Hakku/finnish-humanizer/releases/latest/download/finnish-humanizer.zip)
-2. Avaa [claude.ai](https://claude.ai)
-3. Luo uusi projekti (tai avaa olemassa oleva)
-4. Lisää ZIP projektin **Project knowledge** -osioon
-
-### Claude.ai (manuaalinen)
-
-1. Luo projekti [claude.ai](https://claude.ai):ssä
-2. Mene projektin asetuksiin → **Custom instructions**
-3. Kopioi `finnish-humanizer/SKILL.md`:n sisältö instructions-kenttään
-4. Lisää `finnish-humanizer/references/patterns.md` projektin tiedostoihin (**Project knowledge**)
-
-### Claude Code (`~/.claude/skills/`)
+### Claude Code
 
 1. Kopioi `finnish-humanizer/`-kansio (sisältää `SKILL.md` + `references/`) polkuun `~/.claude/skills/finnish-humanizer/`
-2. Käynnistä Claude Code uudelleen (skill-lista ladataan session alussa)
+2. Käynnistä Claude Code uudelleen
 3. Kutsu: `/finnish-humanizer [tiedostopolku tai teksti]`
 
 **CC-lisäasetukset:** Lisää frontmatteriin `argument-hint: "[tiedostopolku tai teksti]"` saadaksesi käyttövinkin slash-komennon yhteyteen.
 
+### Claude.ai (projekti)
+
+1. [Lataa `finnish-humanizer.zip`](https://github.com/Hakku/finnish-humanizer/releases/latest/download/finnish-humanizer.zip) (tai `dist/finnish-humanizer.zip` reposta)
+2. Avaa [claude.ai](https://claude.ai) ja luo uusi projekti
+3. Lisää ZIP projektin **Project knowledge** -osioon
+
+Vaihtoehtoisesti: kopioi `finnish-humanizer/SKILL.md`:n sisältö projektin **Custom instructions** -kenttään ja lisää `references/patterns.md` tiedostona.
+
+### Cursor
+
+1. Kopioi `dist/cursor/finnish-humanizer.mdc` projektin `.cursor/rules/`-kansioon
+2. Skill aktivoituu automaattisesti `.md`- ja `.txt`-tiedostoille
+
+### GitHub Copilot
+
+1. Kopioi `dist/copilot/finnish-humanizer.instructions.md` projektin `.github/`-kansioon
+2. Copilot injektoi ohjeet automaattisesti `.md`- ja `.txt`-tiedostoille
+
 ### API (`container.skills`)
 
-Lisää SKILL.md:n sisältö system-promptiin ja patterns.md kontekstina. Tarkemmat ohjeet riippuvat käyttämästäsi API-clientistä.
+Lisää `finnish-humanizer/SKILL.md`:n sisältö system-promptiin ja `references/patterns.md` kontekstina.
 
 ## Käyttö
 
-Liitä suomenkielinen teksti keskusteluun ja pyydä luonnollistamaan:
+Liitä suomenkielinen teksti ja pyydä luonnollistamaan:
 
 ```
 Luonnollista tämä teksti:
@@ -64,8 +72,8 @@ Muita toimivia komentoja:
 
 ### Lyhyt vs. pitkä teksti
 
-- **Alle 500 sanaa:** Skill käsittelee suoraan ja palauttaa luonnollistetun version + muutosyhteenvedon.
-- **Yli 500 sanaa:** Skill analysoi ensin, esittää löydetyt patternit ja kysyy epäselvistä ennen toteutusta.
+- **Alle 500 sanaa:** Käsittelee suoraan, palauttaa luonnollistetun version + muutosyhteenvedon.
+- **Yli 500 sanaa:** Analysoi ensin, esittää löydetyt patternit ja kysyy epäselvistä ennen toteutusta.
 
 ### Muutosyhteenveto
 
