@@ -22,10 +22,9 @@ Täysi patternilista esimerkkeineen: [`finnish-humanizer/references/patterns.md`
 
 ### Claude.ai (ZIP-upload)
 
-1. [Lataa `finnish-humanizer.zip`](https://github.com/Hakku/finnish-humanizer/releases/latest/download/finnish-humanizer.zip)
-2. Avaa [claude.ai](https://claude.ai)
-3. Luo uusi projekti (tai avaa olemassa oleva)
-4. Lisää ZIP projektin **Project knowledge** -osioon
+1. Avaa [claude.ai](https://claude.ai)
+2. Luo uusi projekti (tai avaa olemassa oleva)
+3. Lataa `finnish-humanizer.zip` projektin **Project knowledge** -osioon
 
 ### Claude.ai (manuaalinen)
 

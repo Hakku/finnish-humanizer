@@ -1,10 +1,17 @@
 ---
 name: finnish-humanizer
-description: "Tunnistaa ja poistaa AI-generoidun suomenkielisen tekstin tunnusmerkit. Tekee tekstistä luonnollisempaa ja ihmisen kirjoittaman kuuloista. Käytä kun käyttäjä pyytää luonnollistamaan, humanisoimaan tai poistamaan AI-tuntua suomenkielisestä tekstistä. Tunnistaa 26 patternia ja 4 tyylimerkintää."
+description: Tunnistaa ja poistaa AI-generoidun suomenkielisen tekstin tunnusmerkit. Tekee tekstistä luonnollisempaa ja ihmisen kirjoittaman kuuloista. Käytä kun käyttäjä pyytää luonnollistamaan, humanisoimaan tai poistamaan AI-tuntua suomenkielisestä tekstistä. Tunnistaa 26 patternia ja 4 tyylimerkintää.
 license: MIT
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+  - Glob
+  - Grep
+  - AskUserQuestion
 metadata:
   author: Hakku
-  version: "1.0.0"
+  version: 1.0.0
 ---
 
 # Finnish Humanizer
