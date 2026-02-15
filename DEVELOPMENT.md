@@ -7,25 +7,29 @@ finnish-humanizer/
 ├── README.md                           ← Asennus, käyttö, esimerkit
 ├── LICENSE                             ← MIT
 ├── DEVELOPMENT.md                      ← Tämä tiedosto
-├── finnish-humanizer/                  ← Jaeltava skill-kansio
+├── finnish-humanizer/                  ← Kanoninen skill-sisältö
 │   ├── SKILL.md                        ← Unified (portatiiviinen)
 │   └── references/
 │       └── patterns.md                 ← Täysi 26 kategorian patternilista + 4 tyylimerkintää
-└── finnish-humanizer.zip               ← Valmis ZIP Claude.ai -uploadiin
+└── dist/                               ← Alustakohtaiset paketit
+    ├── finnish-humanizer.zip            ← Claude.ai ZIP-upload
+    ├── cursor/
+    │   └── finnish-humanizer.mdc       ← Cursor (.cursor/rules/)
+    └── copilot/
+        └── finnish-humanizer.instructions.md  ← GitHub Copilot (.github/)
 ```
 
 ## Arkkitehtuuripäätökset
 
 ### Unified skill
 
-Yksi SKILL.md toimii kaikissa ympäristöissä (Claude.ai, Claude Code, API). CC-spesifiset kentät (kuten `argument-hint`) lisätään vain deployed CC-versioon.
+Yksi kanoninen `SKILL.md` toimii kaikissa ympäristöissä (Claude.ai, Claude Code, API). CC-spesifiset kentät (kuten `argument-hint`) lisätään vain deployed CC-versioon. Alustakohtaiset paketit `dist/`-kansiossa muuttavat frontmatterin mutta säilyttävät bodyn.
 
-| | Unified (distributable) | CC deployed |
-|---|---|---|
-| Frontmatter | `name`, `description`, `license`, `allowed-tools`, `metadata` | + `argument-hint` |
-| Työkalut | `allowed-tools` (ignoroidaan ympäristöissä jotka eivät tue) | Toimii natiivisti |
-| Pitkän tekstin käsittely | Adaptiivinen workflow | Tiedostopohjainen workflow |
-| Esimerkkejä | 7 inline + 26 referencessä | Sama |
+| | Unified (kanoninen) | CC deployed | Cursor | Copilot |
+|---|---|---|---|---|
+| Frontmatter | `name`, `description`, `license`, `allowed-tools`, `metadata` | + `argument-hint` | `description`, `globs`, `alwaysApply` | `applyTo`, `description` |
+| Body | Identtinen kaikilla | Identtinen | Identtinen (GitHub-linkit) | Identtinen (GitHub-linkit) |
+| `references/` | Sisällytetty | Sisällytetty | Linkki GitHubiin | Linkki GitHubiin |
 
 ### Esimerkkien valinta (SKILL.md)
 
@@ -38,7 +42,7 @@ Loput 19 patternia ovat `references/patterns.md`:ssä.
 
 ### XML-tagit
 
-SKILL.md käyttää XML-tageja ylätason jäsentelyyn (`<role>`, `<finnish_voice>`, `<process>`, `<examples>`, `<output_format>`, `<constraints>`). Claude tulkitsee nämä rakenteellisina ohjeina, mikä parantaa ohjeiden noudattamista verrattuna pelkkiin markdown-otsikoihin.
+SKILL.md käyttää XML-tageja ylätason jäsentelyyn (`<role>`, `<finnish_voice>`, `<process>`, `<examples>`, `<output_format>`, `<constraints>`). Claude tulkitsee nämä rakenteellisina ohjeina, mikä parantaa ohjeiden noudattamista verrattuna pelkkiin markdown-otsikoihin. Cursor ja Copilot hyötyvät myös XML-tageista koska niiden LLM:t (GPT-4, Claude) ymmärtävät ne.
 
 ## Muokkaaminen
 
@@ -53,12 +57,18 @@ SKILL.md käyttää XML-tageja ylätason jäsentelyyn (`<role>`, `<finnish_voice
 
 Muokkaa suoraan relevanttia tiedostoa. Jos pattern esiintyy sekä `SKILL.md`:ssä että `references/patterns.md`:ssä, päivitä molemmat.
 
-### ZIP-paketin päivitys
+### Dist-pakettien päivitys
+
+Body-sisältö on identtinen kaikissa dist-paketeissa. Kun muokkaat `SKILL.md`:n bodya:
+
+1. Kopioi päivitetty body `dist/cursor/finnish-humanizer.mdc`:hen (vaihda `references/patterns.md` → GitHub-linkki)
+2. Kopioi päivitetty body `dist/copilot/finnish-humanizer.instructions.md`:hen (sama muutos)
+3. Päivitä ZIP:
 
 ```powershell
 cd C:\Users\hassi\Projektit\Claude-Workflow\Skills-Dev\finnish-humanizer
-Remove-Item finnish-humanizer.zip -ErrorAction SilentlyContinue
-Compress-Archive -Path finnish-humanizer -DestinationPath finnish-humanizer.zip
+Remove-Item dist\finnish-humanizer.zip -ErrorAction SilentlyContinue
+Compress-Archive -Path finnish-humanizer -DestinationPath dist\finnish-humanizer.zip
 ```
 
 ### CC deployed version päivitys
@@ -77,3 +87,6 @@ Kopioi unified SKILL.md → `~/.claude/skills/finnish-humanizer/SKILL.md` ja lis
 | Ei `finnish-naturalizer`-viittauksia | 0 osumaa koko projektissa |
 | Ei `reference/`-viittauksia (yksikkö) | 0 osumaa koko projektissa |
 | ZIP sisältö | `finnish-humanizer/SKILL.md` + `finnish-humanizer/references/patterns.md` |
+| Cursor .mdc frontmatter | `description`, `globs`, `alwaysApply` |
+| Copilot .instructions.md frontmatter | `applyTo`, `description` |
+| Dist body synkroni | Body identtinen SKILL.md:n kanssa (paitsi references-linkki) |
