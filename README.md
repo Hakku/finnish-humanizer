@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/Hakku/finnish-humanizer/releases)
-[![Platforms](https://img.shields.io/badge/platforms-Claude%20%7C%20Cursor%20%7C%20Copilot-purple.svg)](#asennus)
+[![Platforms](https://img.shields.io/badge/platforms-Claude%20%7C%20ChatGPT%20%7C%20Cursor%20%7C%20Copilot-purple.svg)](#asennus)
 
 Tunnistaa ja poistaa AI-generoidun suomenkielisen tekstin tunnusmerkit. Tekee tekstistä luonnollisempaa ja ihmisen kirjoittaman kuuloista.
 
@@ -45,6 +45,12 @@ Vaihtoehtoisesti: kopioi `finnish-humanizer/SKILL.md`:n sisältö projektin **Cu
 1. Kopioi `dist/cursor/finnish-humanizer.mdc` projektin `.cursor/rules/`-kansioon
 2. Skill aktivoituu automaattisesti `.md`- ja `.txt`-tiedostoille
 
+### ChatGPT (Custom GPT)
+
+Käytä valmista GPT:tä suoraan: **[Finnish Humanizer — Luonnollista suomea](https://chatgpt.com/g/g-69930f3ef1bc8191b2b998e0e01dc99e-finnish-humanizer-luonnollista-suomea)**
+
+Vaatii ChatGPT Plus/Pro -tilauksen.
+
 ### GitHub Copilot
 
 1. Kopioi `dist/copilot/finnish-humanizer.instructions.md` projektin `.github/`-kansioon
@@ -70,10 +76,10 @@ Muita toimivia komentoja:
 - "Tee tästä ihmismäisempää"
 - "Humanisoi tämä"
 
-### Lyhyt vs. pitkä teksti
+### Analysointi vs. suora korjaus
 
-- **Alle 500 sanaa:** Käsittelee suoraan, palauttaa luonnollistetun version + muutosyhteenvedon.
-- **Yli 500 sanaa:** Analysoi ensin, esittää löydetyt patternit ja kysyy epäselvistä ennen toteutusta.
+- **Oletus:** Luonnollistaa tekstin suoraan ja palauttaa korjatun version + muutosyhteenvedon.
+- **"Analysoi ensin":** Palauttaa vain löydetyt AI-patternit ilman korjauksia — voit valita mitkä korjataan.
 
 ### Muutosyhteenveto
 
