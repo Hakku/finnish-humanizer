@@ -24,13 +24,14 @@ PLATFORMS = {
         "path": "cursor/finnish-humanizer.mdc",
         "frontmatter": lambda d: [
             f"description: {d}",
-            'globs: "*.md,*.txt"',
+            'globs: "**/*.md,**/*.txt"',
             "alwaysApply: false",
         ],
     },
     "copilot": {
         "path": "copilot/finnish-humanizer.instructions.md",
         "frontmatter": lambda d: [
+            "name: Finnish Humanizer",
             'applyTo: "**/*.md,**/*.txt"',
             f"description: {d}",
         ],
@@ -107,7 +108,7 @@ def build_chatgpt_patterns():
         flags=re.DOTALL,
     )
     text = text.replace(
-        "esimerkkeineen. SKILL.md sisältää 7 kanonista esimerkkiä;"
+        "esimerkkeineen. SKILL.md sisältää 6 kanonista esimerkkiä;"
         " tämä tiedosto sisältää loput.",
         "esimerkkeineen + 5 tyylimerkintää.",
     )
@@ -131,8 +132,14 @@ def build_zip():
     fm = parts[1]
     kept = []
     for line in fm.strip().splitlines():
-        if re.match(r"^(name|description):", line):
+        if re.match(r"^name:", line):
             kept.append(line)
+        elif re.match(r"^description:", line):
+            desc = line.split(":", 1)[1].strip()
+            short = ". ".join(desc.split(". ")[:2]) + "."
+            if len(short) > 200:
+                short = short[:197] + "..."
+            kept.append(f"description: {short}")
     stripped = "---\n" + "\n".join(kept) + "\n---" + parts[2]
 
     zip_path = DIST / "finnish-humanizer.zip"

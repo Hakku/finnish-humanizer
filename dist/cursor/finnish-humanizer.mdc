@@ -1,6 +1,6 @@
 ---
 description: Tunnistaa ja poistaa AI-generoidun suomenkielisen tekstin tunnusmerkit. Tekee tekstistä luonnollisempaa ja ihmisen kirjoittaman kuuloista.
-globs: "*.md,*.txt"
+globs: "**/*.md,**/*.txt"
 alwaysApply: false
 ---
 
