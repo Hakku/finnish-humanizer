@@ -118,10 +118,26 @@ def build_chatgpt_patterns():
 
 
 def build_zip():
-    """Build dist/finnish-humanizer.zip for Claude.ai."""
+    """Build dist/finnish-humanizer.zip for Claude.ai.
+
+    Claude.ai skill upload only accepts name + description in YAML frontmatter.
+    Strip license, allowed-tools, metadata before packaging.
+    """
+    text = SKILL_MD.read_text(encoding="utf-8")
+    parts = text.split("---", 2)
+    if len(parts) < 3:
+        raise ValueError("SKILL.md: frontmatter puuttuu")
+
+    fm = parts[1]
+    kept = []
+    for line in fm.strip().splitlines():
+        if re.match(r"^(name|description):", line):
+            kept.append(line)
+    stripped = "---\n" + "\n".join(kept) + "\n---" + parts[2]
+
     zip_path = DIST / "finnish-humanizer.zip"
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
-        zf.write(SKILL_MD, "finnish-humanizer/SKILL.md")
+        zf.writestr("finnish-humanizer/SKILL.md", stripped)
         zf.write(PATTERNS_MD, "finnish-humanizer/references/patterns.md")
     return zip_path
 
