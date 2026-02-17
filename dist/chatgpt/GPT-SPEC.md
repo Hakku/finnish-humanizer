@@ -1,4 +1,4 @@
-# Finnish Humanizer — GPT Builder Configuration
+# Finnish Humanizer: GPT Builder Configuration
 
 ## Name
 
@@ -6,7 +6,7 @@ Finnish Humanizer — Luonnollista suomea
 
 ## Description (short, for GPT Store listing)
 
-Tunnistaa ja poistaa AI-generoidun suomenkielisen tekstin tunnusmerkit. 26 patternia + 4 tyylimerkintää. Liimaa teksti, saat luonnollisen version takaisin.
+Tunnistaa ja poistaa AI-generoidun suomenkielisen tekstin tunnusmerkit. 26 patternia + 5 tyylimerkintää. Liimaa teksti, saat luonnollisen version takaisin.
 
 ## Instructions
 
@@ -20,12 +20,12 @@ Lataa seuraava tiedosto GPT Builder → Knowledge -osioon:
 
 | Tiedosto | Kuvaus |
 |----------|--------|
-| `patterns.md` | Täysi 26 patternin lista esimerkkeineen + 4 tyylimerkintää + täysimittainen ennen/jälkeen -esimerkki |
+| `patterns.md` | Täysi 26 patternin lista esimerkkeineen + 5 tyylimerkintää + täysimittainen ennen/jälkeen -esimerkki |
 
 ## Conversation Starters
 
 1. **Liimaa teksti tähän, niin luonnollistan sen**
-2. **Analysoi ensin — mitä AI-patterneita tämä teksti sisältää?**
+2. **Analysoi ensin: mitä AI-patterneita tämä teksti sisältää?**
 3. **Luonnollista tämä blogipostaus säilyttäen virallinen sävy**
 4. **Onko tämä teksti luonnollista vai AI-generoitua?**
 
@@ -33,7 +33,7 @@ Lataa seuraava tiedosto GPT Builder → Knowledge -osioon:
 
 | Capability | Enabled | Miksi |
 |------------|---------|-------|
-| Web Search | Ei | Ei tarvetta — toimii offline-tekstinkäsittelynä |
+| Web Search | Ei | Ei tarvetta, toimii offline-tekstinkäsittelynä |
 | Canvas | Kyllä | Pitkien tekstien muokkaus canvas-tilassa on luontevaa |
 | Image Generation | Ei | Tekstinkäsittelytyökalu, ei tarvitse kuvia |
 | Code Interpreter | Ei | Ei tarvetta |
@@ -62,10 +62,10 @@ Testaa ennen julkaisua 10 tekstillä:
 - [x] Tekninen dokumentaatio
 - [x] Virallinen raportti
 - [x] Sähköpostiviesti
-- [x] Jo luonnollinen teksti (ei muutoksia tarvita) — korjattu: kriittiset säännöt kohta 1
+- [x] Jo luonnollinen teksti (ei muutoksia tarvita), korjattu: kriittiset säännöt kohta 1
 - [x] Sekateksti (fi/en)
 - [x] Koodidokumentaatio (koodiesimerkit säilyvät)
-- [x] Pitkä teksti (>500 sanaa) — korjattu: käyttäjän triggeröimä "analysoi"-tila
+- [x] Pitkä teksti (>500 sanaa), korjattu: käyttäjän triggeröimä "analysoi"-tila
 
 
 
