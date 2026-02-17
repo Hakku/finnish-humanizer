@@ -22,9 +22,11 @@ Ennen kuin korjaat yhtään patternia, sisäistä miten suomalainen kirjoittaja 
 
 **Innostus epäilyttää.** Suomalainen kirjoittaja ei huuda eikä hehkuta. Kuiva toteamus on vahvempi kuin huutomerkki. "Ihan hyvä" on kehu.
 
-**Hiljaisuus on tyylikeino.** Se mitä jätetään sanomatta voi olla yhtä tärkeää kuin se mitä sanotaan. Älä täytä jokaista aukkoa selityksellä.
+**Hiljaisuus on tyylikeino.** Se mitä jätetään sanomatta on yhtä tärkeää kuin se mitä sanotaan. Suomessa jo mainittu jätetään pois — AI toistaa kaiken eksplisiittisesti. Luota lukijan muistiin.
 
-**Partikkelit elävöittävät.** -han/-hän, -pa/-pä, kyllä, vaan, nyt, sit. Ne tekevät tekstistä elävää ja luonnollista. AI jättää ne pois koska ne ovat "turhia". Ne eivät ole.
+**Partikkelit kantavat merkitystä.** -han/-hän, -pa/-pä, kyllä, vaan. Ne eivät ole turhia — ne ilmaisevat asennetta ja suhdetta lukijaan. AI jättää ne pois.
+
+**Sanajärjestys on työkalu.** "Uuden järjestelmän suunnitteli tiimimme" painottaa eri asiaa kuin "Tiimimme suunnitteli uuden järjestelmän". AI tuottaa jäykkää SVO:ta eikä hyödynnä tätä vapautta.
 
 ### Esimerkki: sieluton vs. elävä
 
@@ -36,12 +38,14 @@ Ennen kuin korjaat yhtään patternia, sisäistä miten suomalainen kirjoittaja 
 
 ### Persoonallisuuden lisääminen
 
-AI-tunnusmerkkien poistaminen ei yksin riitä. Teksti tarvitsee myös persoonallisuutta.
+Patternien poistaminen ei yksin riitä. Elävä teksti tarvitsee:
 
-- **Rytmin vaihtelu.** Vaihtele lyhyitä ja pitkiä virkkeitä. Monotoninen virkerakenne on AI:n tunnusmerkki.
-- **Monimutkaisuuden tunnustaminen.** Asiat voivat olla ristiriitaisia, epäselviä tai keskeneräisiä. AI yrittää ratkaista kaiken siististi.
-- **Konkreettiset yksityiskohdat.** Korvaa yleistykset yksityiskohdilla. "Monet yritykset" → "Kolme suurinta kilpailijaa".
-- **Harkittu epätäydellisyys.** Sivujuonteet, ajatuksen kehittyminen kesken tekstin, itsekorjaus. Nämä ovat ihmisen kirjoittamisen merkkejä.
+- **Rytmin vaihtelu.** Lyhyt virke. Sitten pidempi joka ottaa aikansa. Monotoninen rakenne paljastaa AI:n.
+- **Reagoi, älä vain raportoi.** Kun tekstilaji sallii, ota kantaa. "En tiedä mitä tästä ajatella" on inhimillisempää kuin neutraali lista.
+- **Tunnusta monimutkaisuus.** Asiat voivat olla ristiriitaisia tai keskeneräisiä. AI ratkaisee kaiken siististi.
+- **Spesifisyys.** "Monet yritykset" → "Kolme suurinta kilpailijaa". Konkreettisuus on uskottavuutta.
+- **Harkittu epätäydellisyys.** Sivujuonteet, itsekorjaus, ajatuksen kehittyminen kesken tekstin.
+- **Rekisterien sekoittaminen.** Luonnollinen suomi vaihtaa rekisteriä tilanteen mukaan. AI kirjoittaa yhtenäistä kirjakieltä tai kömpelyä puhekieltä — ei koskaan molempia luontevasti.
 
 ## Prosessi
 

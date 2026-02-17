@@ -17,15 +17,15 @@ finnish-humanizer/
     ├── cursor/
     │   └── finnish-humanizer.mdc       ← Cursor (.cursor/rules/)
     ├── copilot/
-    │   └── finnish-humanizer.instructions.md  ← GitHub Copilot (.github/)
+    │   └── finnish-humanizer.instructions.md  ← GitHub Copilot (.github/instructions/)
     ├── windsurf/
-    │   └── finnish-humanizer.md        ← Windsurf (.windsurfrules)
+    │   └── finnish-humanizer.md        ← Windsurf (.windsurf/rules/)
     ├── cline/
-    │   └── finnish-humanizer.md        ← Cline (.cline/rules/)
+    │   └── finnish-humanizer.md        ← Cline (.clinerules/)
     ├── continue/
     │   └── finnish-humanizer.md        ← Continue (.continue/rules/)
     ├── jetbrains/
-    │   └── finnish-humanizer.md        ← JetBrains AI (.junie/rules/)
+    │   └── finnish-humanizer.md        ← JetBrains AI (.junie/guidelines.md)
     ├── generic/
     │   └── finnish-humanizer.md        ← Aider, Bolt, Amazon Q, chat-alustat
     ├── agents/
@@ -45,16 +45,16 @@ Yksi kanoninen `SKILL.md` toimii kaikissa ympäristöissä (Claude.ai, Claude Co
 
 | | Unified (kanoninen) | CC deployed | Cursor | Copilot | Windsurf | Cline | Continue | JetBrains | Generic | Agents |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Frontmatter | `name`, `description`, `license`, `allowed-tools`, `metadata` | + `argument-hint` | `description`, `globs`, `alwaysApply` | `applyTo`, `description` | Ei | Ei | `name`, `globs`, `alwaysApply`, `description` | Ei | Ei | Ei |
+| Frontmatter | `name`, `description`, `license`, `allowed-tools`, `metadata` | + `argument-hint` | `description`, `globs`, `alwaysApply` | `name`, `applyTo`, `description` | Ei | Ei | `name`, `globs`, `alwaysApply`, `description` | Ei | Ei | Ei |
 | Body | Identtinen kaikilla | Identtinen | Identtinen (GitHub-linkit) | Identtinen (GitHub-linkit) | Identtinen (GitHub-linkit) | Identtinen (GitHub-linkit) | Identtinen (GitHub-linkit) | Identtinen (GitHub-linkit) | Identtinen (GitHub-linkit) | Identtinen (GitHub-linkit) |
 | `references/` | Sisällytetty | Sisällytetty | Linkki GitHubiin | Linkki GitHubiin | Linkki GitHubiin | Linkki GitHubiin | Linkki GitHubiin | Linkki GitHubiin | Linkki GitHubiin | Linkki GitHubiin |
 
 ### Esimerkkien valinta (SKILL.md)
 
-7 esimerkkiä valittu kattamaan:
+6 esimerkkiä valittu kattamaan:
 
 - **4 suomenkielistä** (#1, #4, #5, #6). Skillin uniikki arvo, koska Claude tuntee universaalit patternit jo
-- **3 universaalia** (#13, #15, #17). Yleisimmät, näyttävät miten korjaus toimii suomeksi
+- **2 universaalia** (#13, #15). Yleisimmät, näyttävät miten korjaus toimii suomeksi
 
 Loput 19 patternia ovat `references/patterns.md`:ssä.
 
@@ -69,7 +69,7 @@ SKILL.md käyttää XML-tageja ylätason jäsentelyyn (`<role>`, `<finnish_voice
 1. Lisää pattern `references/patterns.md`:hen oikeaan kategoriaan (suomenkielinen / universaali)
 2. Lisää Ennen/Jälkeen-esimerkit (vähintään yksi pari)
 3. Päivitä sisällysluettelo
-4. Jos pattern on erityisen yleinen tai tärkeä, harkitse sen lisäämistä myös `SKILL.md`:n 7 esimerkin joukkoon (korvaa vähiten hyödyllinen)
+4. Jos pattern on erityisen yleinen tai tärkeä, harkitse sen lisäämistä myös `SKILL.md`:n 6 esimerkin joukkoon (korvaa vähiten hyödyllinen)
 
 ### Patternin muokkaaminen
 
@@ -113,7 +113,7 @@ Kopioi unified SKILL.md → `~/.claude/skills/finnish-humanizer/SKILL.md` ja lis
 | Ei `reference/`-viittauksia (yksikkö) | 0 osumaa koko projektissa |
 | ZIP sisältö | `finnish-humanizer/SKILL.md` + `finnish-humanizer/references/patterns.md` |
 | Cursor .mdc frontmatter | `description`, `globs`, `alwaysApply` |
-| Copilot .instructions.md frontmatter | `applyTo`, `description` |
+| Copilot .instructions.md frontmatter | `name`, `applyTo`, `description` |
 | Continue frontmatter | `name`, `globs`, `alwaysApply`, `description` |
 | Windsurf merkkimäärä | < 12 000 |
 | Dist body synkroni | Body identtinen SKILL.md:n kanssa (paitsi references-linkki) |
