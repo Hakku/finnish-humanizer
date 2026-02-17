@@ -68,15 +68,15 @@ Täysi patternilista esimerkkeineen: [`finnish-humanizer/references/patterns.md`
 <details>
 <summary><strong>GitHub Copilot</strong></summary>
 
-1. Kopioi `dist/copilot/finnish-humanizer.instructions.md` projektin `.github/`-kansioon
-2. Copilot injektoi ohjeet automaattisesti `.md`- ja `.txt`-tiedostoille
+1. Kopioi `dist/copilot/finnish-humanizer.instructions.md` projektin `.github/instructions/`-kansioon
+2. Copilot aktivoi ohjeet automaattisesti `applyTo`-frontmatterin perusteella `.md`- ja `.txt`-tiedostoille
 
 </details>
 
 <details>
 <summary><strong>Windsurf</strong></summary>
 
-1. Kopioi `dist/windsurf/finnish-humanizer.md` projektin `.windsurfrules/`-kansioon
+1. Kopioi `dist/windsurf/finnish-humanizer.md` projektin `.windsurf/rules/`-kansioon
 2. Tai lisää globaalisti: Windsurf Settings → Rules → lisää tiedoston sisältö
 
 </details>
@@ -84,7 +84,7 @@ Täysi patternilista esimerkkeineen: [`finnish-humanizer/references/patterns.md`
 <details>
 <summary><strong>Cline</strong></summary>
 
-1. Kopioi `dist/cline/finnish-humanizer.md` projektin `.cline/rules/`-kansioon
+1. Kopioi `dist/cline/finnish-humanizer.md` projektin `.clinerules/`-kansioon
 2. Tai lisää Cline-asetuksista: Custom Instructions → liitä tiedoston sisältö
 
 </details>
@@ -100,7 +100,7 @@ Täysi patternilista esimerkkeineen: [`finnish-humanizer/references/patterns.md`
 <details>
 <summary><strong>JetBrains AI</strong></summary>
 
-1. Kopioi `dist/jetbrains/finnish-humanizer.md` projektin `.junie/rules/`-kansioon (Junie)
+1. Kopioi `dist/jetbrains/finnish-humanizer.md` projektin `.junie/guidelines.md`-tiedostoksi (Junie)
 2. Tai AI Assistant: Settings → AI Assistant → Project-level prompt → liitä sisältö
 
 </details>
