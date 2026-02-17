@@ -1,8 +1,3 @@
----
-applyTo: "**/*.md,**/*.txt"
-description: Tunnistaa ja poistaa AI-generoidun suomenkielisen tekstin tunnusmerkit. Tekee tekstistä luonnollisempaa ja ihmisen kirjoittaman kuuloista.
----
-
 # Finnish Humanizer
 
 <role>

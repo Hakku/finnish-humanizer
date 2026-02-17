@@ -1,4 +1,4 @@
-# Finnish Humanizer — Täysi patternilista
+# Finnish Humanizer: Täysi patternilista
 
 Kaikki 26 AI-patternia esimerkkeineen. SKILL.md sisältää 7 kanonista esimerkkiä; tämä tiedosto sisältää loput.
 
@@ -162,64 +162,56 @@ Nämä esiintyvät kaikissa kielissä mutta tunnistetaan ja korjataan suomenkiel
 
 ### 13. Merkittävyyden liioittelu
 
-AI paisuttaa kaiken "merkittäväksi", "keskeiseksi" tai "ratkaisevaksi".
-Merkkisanat: merkittävä, keskeinen, ratkaiseva rooli, olennainen, elintärkeä, kriittinen
+AI paisuttaa kaiken merkittäväksi, keskeiseksi tai ratkaisevaksi. Samaan perheeseen kuuluvat olennainen, elintärkeä ja kriittinen.
 
 Ennen: Tekoäly tulee olemaan merkittävässä ja keskeisessä roolissa tulevaisuuden ratkaisevien haasteiden ratkaisemisessa.
 Jälkeen: Tekoälystä tulee tärkeä työkalu moniin ongelmiin.
 
 ### 14. Mainosmainen kieli
 
-Teksti kuulostaa mainokselta vaikka konteksti on neutraali.
-Merkkisanat: ainutlaatuinen, uraauurtava, vertaansa vailla, vallankumouksellinen, maailmanluokan
+Teksti kuulostaa mainokselta vaikka konteksti on neutraali. Tunnistuu sanoista kuten ainutlaatuinen, uraauurtava, vertaansa vailla ja vallankumouksellinen.
 
 Ennen: Uraauurtava ja ainutlaatuinen alustamme tarjoaa vertaansa vailla olevan käyttökokemuksen.
 Jälkeen: Alusta toimii hyvin ja erottuu kilpailijoista.
 
 ### 15. Mielistelevä sävy
 
-AI kehuu kysyjää tai aihevalintaa. Suomessa tämä on erityisen kiusallista.
-Merkkisanat: Hyvä kysymys!, Ehdottomasti!, Aivan oikein!, Erinomainen huomio!
+AI kehuu kysyjää tai aihevalintaa. Suomessa tämä on erityisen kiusallista. Alkaa usein sanoilla "Hyvä kysymys!", "Ehdottomasti!" tai "Erinomainen huomio!".
 
 Ennen: Hyvä kysymys! Tämä on ehdottomasti yksi tärkeimmistä aiheista tällä hetkellä.
 Jälkeen: Aihe on ajankohtainen.
 
 ### 16. Liiallinen varautuminen
 
-AI pehmentää jokaisen väitteen varmuuden vuoksi.
-Merkkisanat: saattaisi mahdollisesti, voitaneen todeta, lienee perusteltua, on syytä olettaa
+AI pehmentää jokaisen väitteen varmuuden vuoksi. Tunnistuu ilmauksista kuten saattaisi mahdollisesti, voitaneen todeta ja lienee perusteltua.
 
 Ennen: Saattaisi olla mahdollista, että tämä lähestymistapa voisi potentiaalisesti tuottaa jonkinlaisia parannuksia tietyissä olosuhteissa.
 Jälkeen: Lähestymistapa todennäköisesti parantaa tuloksia.
 
 ### 17. Täytesanat ja -lauseet
 
-AI aloittaa tai täyttää kappaleita fraaseilla jotka eivät lisää sisältöä.
-Merkkisanat: On syytä huomata, Tässä yhteydessä on tärkeää, Kuten aiemmin mainittiin, On hyvä muistaa
+AI aloittaa tai täyttää kappaleita fraaseilla jotka eivät lisää sisältöä, kuten "On syytä huomata", "Tässä yhteydessä on tärkeää" ja "Kuten aiemmin mainittiin".
 
 Ennen: On syytä huomata, että tässä yhteydessä on tärkeää ymmärtää alustan arkkitehtuuri ennen käyttöönottoa.
 Jälkeen: Ymmärrä alustan arkkitehtuuri ennen käyttöönottoa.
 
 ### 18. Geneerinen lopetus
 
-AI päättää tekstin tyhjällä optimismilla.
-Merkkisanat: Tulevaisuus näyttää valoisalta, jatkaa kehittymistä, avaa uusia mahdollisuuksia
+AI päättää tekstin tyhjällä optimismilla, kuten "tulevaisuus näyttää valoisalta", "jatkaa kehittymistään" tai "avaa uusia mahdollisuuksia".
 
 Ennen: Tulevaisuus näyttää valoisalta ja ala jatkaa kehittymistään, avaten uusia mahdollisuuksia kaikille toimijoille.
 Jälkeen: [Poista kokonaan tai korvaa konkreettisella ennusteella]
 
 ### 19. Epämääräiset viittaukset
 
-AI viittaa auktoriteetteihin nimeämättä niitä.
-Merkkisanat: Asiantuntijoiden mukaan, Tutkimukset osoittavat, Alan johtavat toimijat
+AI viittaa auktoriteetteihin nimeämättä niitä, kuten "asiantuntijoiden mukaan", "tutkimukset osoittavat" tai "alan johtavat toimijat".
 
 Ennen: Tutkimukset osoittavat, että asiantuntijoiden mukaan tämä on alan paras käytäntö.
 Jälkeen: [Nimeä lähde] tai poista väite.
 
 ### 20. "Haasteista huolimatta" -kaava
 
-AI tunnustaa haasteen mutta mitätöi sen välittömästi. Rakenne: "vaikka X, niin silti Y".
-Merkkisanat: Haasteista huolimatta, Vaikka [ongelma], jatkaa kehittymistä
+AI tunnustaa haasteen mutta mitätöi sen välittömästi. Rakenne: "vaikka X, niin silti Y". Alkaa usein sanoilla "haasteista huolimatta".
 
 Ennen: Haasteista huolimatta yritys on onnistunut kasvattamaan markkinaosuuttaan ja jatkaa vahvaa kehitystään.
 Jälkeen: Yritys on kasvattanut markkinaosuuttaan. Haasteitakin on: [nimeä ne].
@@ -276,8 +268,7 @@ Jälkeen: Palvelu auttaa eri kokoisissa tehtävissä.
 
 ### 26. Tietokatkos-vastuuvapauslausekkeet
 
-AI lisää tarpeettomia vastuuvapauslausekkeita omasta tietotasostaan.
-Merkkisanat: viimeisimpien tietojeni mukaan, saatavilla olevien tietojen perusteella, tämänhetkisen ymmärrykseni mukaan
+AI lisää tarpeettomia vastuuvapauslausekkeita omasta tietotasostaan, kuten "viimeisimpien tietojeni mukaan" tai "saatavilla olevien tietojen perusteella".
 
 Ennen: Viimeisimpien tietojeni mukaan markkinatilanne on muuttunut merkittävästi viime vuosina.
 Jälkeen: Markkinatilanne on muuttunut viime vuosina.
@@ -291,10 +282,11 @@ Jälkeen: Kehitys on ollut positiivista.
 
 Nämä eivät ole patterneita vaan muotoiluvalintoja joita AI suosii:
 
-- **Lihavoinnin ylikäyttö** — AI lihavoi jokaisen avainsanan. Lihavoi vain se mikä oikeasti vaatii huomiota.
-- **Emojit** — Poista ellei konteksti ole selvästi epämuodollinen (some, chat).
-- **"Otsikko:" -listaus** — AI kirjoittaa "**Hyöty:** parempi suorituskyky" kun voisi sanoa "Suorituskyky paranee".
-- **Kaarevat lainausmerkit** — AI (erit. ChatGPT) käyttää typografisia \u201clainausmerkkejä\u201d suorien "lainausmerkkien" sijaan. Suomessa käytetään suoria lainausmerkkejä.
+- **Lihavoinnin ylikäyttö.** AI lihavoi jokaisen avainsanan. Lihavoi vain se mikä oikeasti vaatii huomiota.
+- **Emojit.** Poista ellei konteksti ole selvästi epämuodollinen (some, chat).
+- **"Otsikko:" -listaus.** AI kirjoittaa "**Hyöty:** parempi suorituskyky" kun voisi sanoa "Suorituskyky paranee".
+- **Kaarevat lainausmerkit.** AI (erit. ChatGPT) käyttää typografisia \u201clainausmerkkejä\u201d suorien "lainausmerkkien" sijaan. Suomessa käytetään suoria lainausmerkkejä.
+- **Em-dash (—) ajatusviivana.** Suomessa ajatusviiva on lyhyt `–` välilyönneillä (SFS 4175). AI käyttää amerikkalaista pitkää viivaa `—` koska koulutusdatassa painottuu englanti. Korvaa `—` merkillä `–` tai käytä pistettä, pilkkua tai kaksoispistettä.
 
 ---
 
@@ -312,11 +304,11 @@ Nämä eivät ole patterneita vaan muotoiluvalintoja joita AI suosii:
 
 ### Jälkeen (luonnollistettu)
 
-> Ohjelmistokehitys on muuttunut nopeasti. Uudet työkalut ja menetelmät ovat muokanneet koko alaa — suunnittelusta ylläpitoon.
+> Ohjelmistokehitys on muuttunut nopeasti. Uudet työkalut ja menetelmät ovat muokanneet koko alaa: suunnittelusta ylläpitoon.
 >
 > Ketterät menetelmät ovat yleistyneet syystä. Tiimit reagoivat nopeammin muuttuviin vaatimuksiin. Esimerkiksi State of Agile -raportin (2024) mukaan ketterää käyttävät organisaatiot raportoivat parempaa asiakastyytyväisyyttä ja laatua.
 >
-> Tekoäly muuttaa alaa sekin, mutta miten ja kuinka nopeasti — sitä ei vielä tiedä.
+> Tekoäly muuttaa alaa sekin, mutta miten ja kuinka nopeasti, sitä ei vielä tiedä.
 
 ### Tehdyt muutokset
 

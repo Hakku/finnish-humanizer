@@ -1,5 +1,7 @@
 ---
-applyTo: "**/*.md,**/*.txt"
+name: finnish-humanizer
+globs: "**/*.md,**/*.txt"
+alwaysApply: false
 description: Tunnistaa ja poistaa AI-generoidun suomenkielisen tekstin tunnusmerkit. Tekee tekstistä luonnollisempaa ja ihmisen kirjoittaman kuuloista.
 ---
 

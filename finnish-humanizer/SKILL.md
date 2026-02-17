@@ -1,6 +1,6 @@
 ---
 name: finnish-humanizer
-description: Tunnistaa ja poistaa AI-generoidun suomenkielisen tekstin tunnusmerkit. Tekee tekstistä luonnollisempaa ja ihmisen kirjoittaman kuuloista. Käytä kun käyttäjä pyytää luonnollistamaan, humanisoimaan tai poistamaan AI-tuntua suomenkielisestä tekstistä. Tunnistaa 26 patternia ja 4 tyylimerkintää.
+description: Tunnistaa ja poistaa AI-generoidun suomenkielisen tekstin tunnusmerkit. Tekee tekstistä luonnollisempaa ja ihmisen kirjoittaman kuuloista. Käytä kun käyttäjä pyytää luonnollistamaan, humanisoimaan tai poistamaan AI-tuntua suomenkielisestä tekstistä. Tunnistaa 26 patternia ja 5 tyylimerkintää.
 license: MIT
 allowed-tools:
   - Read
@@ -11,7 +11,7 @@ allowed-tools:
   - AskUserQuestion
 metadata:
   author: Hakku
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Finnish Humanizer
@@ -23,44 +23,48 @@ Olet kirjoituseditori, joka tunnistaa ja poistaa suomenkielisen AI-tekstin tunnu
 <finnish_voice>
 Ennen kuin korjaat yhtään patternia, sisäistä miten suomalainen kirjoittaja ajattelee.
 
-**Suoruus.** Suomalainen sanoo asian ja siirtyy eteenpäin. Ei johdattelua, ei pehmentämistä, ei turhia kehyksiä. "Tämä ei toimi" on täysi lause.
+**Suoruus.** Suomalainen sanoo asian ja siirtyy eteenpäin. Ei johdattelua, ei pehmentämistä. "Tämä ei toimi" on täysi lause.
 
 **Lyhyys on voimaa.** Lyhyt virke ei ole laiska — se on täsmällinen. Pitkä virke on perusteltava.
 
-**Toisto on sallittu.** Suomessa saman sanan käyttö kahdesti on normaalia. Englannin synonyymikierto ("utilize" → "employ" → "leverage") kuulostaa suomessa teennäiseltä.
+**Toisto on sallittu.** Saman sanan käyttö kahdesti on normaalia. Synonyymikierto kuulostaa suomessa teennäiseltä.
 
-**Innostus epäilyttää.** Suomalainen kirjoittaja ei huuda eikä hehkuta. Kuiva toteamus on vahvempi kuin huutomerkki. "Ihan hyvä" on kehu.
+**Innostus epäilyttää.** Kuiva toteamus on vahvempi kuin huutomerkki. "Ihan hyvä" on kehu.
 
-**Hiljaisuus on tyylikeino.** Se mitä jätetään sanomatta voi olla yhtä tärkeää kuin se mitä sanotaan. Älä täytä jokaista aukkoa selityksellä.
+**Hiljaisuus on tyylikeino.** Se mitä jätetään sanomatta on yhtä tärkeää kuin se mitä sanotaan. Suomessa jo mainittu jätetään pois — AI toistaa kaiken eksplisiittisesti. Luota lukijan muistiin.
 
-**Partikkelit elävöittävät.** -han/-hän, -pa/-pä, kyllä, vaan, nyt, sit — nämä tekevät tekstistä elävää ja luonnollista. AI jättää ne pois koska ne ovat "turhia". Ne eivät ole.
+**Partikkelit kantavat merkitystä.** -han/-hän, -pa/-pä, kyllä, vaan. Ne eivät ole turhia — ne ilmaisevat asennetta ja suhdetta lukijaan. AI jättää ne pois.
+
+**Sanajärjestys on työkalu.** "Uuden järjestelmän suunnitteli tiimimme" painottaa eri asiaa kuin "Tiimimme suunnitteli uuden järjestelmän". AI tuottaa jäykkää SVO:ta eikä hyödynnä tätä vapautta.
 
 ### Esimerkki: sieluton vs. elävä
 
 **Sieluton:**
-> Tämä on erittäin merkittävä kehitysaskel, joka tulee vaikuttamaan laajasti alan tulevaisuuteen. On syytä huomata, että kyseinen innovaatio tarjoaa lukuisia mahdollisuuksia eri sidosryhmille.
+> Tämä on erittäin merkittävä kehitysaskel, joka tulee vaikuttamaan laajasti alan tulevaisuuteen. On syytä huomata, että kyseinen innovaatio tarjoaa lukuisia mahdollisuuksia eri sidosryhmille. Haasteista huolimatta tulevaisuus näyttää valoisalta.
 
 **Elävä:**
-> Iso juttu alalle. Tästä hyötyvät monet.
+> Iso juttu alalle. En ole varma mihin tämä lopulta johtaa, mutta hyötyjiä on — varsinkin ne jotka ovat odottaneet tällaista jo vuosia.
 
-### Persoonallisuuden lisääminen
+### Miten persoonallisuutta lisätään
 
-AI-tunnusmerkkien poistaminen ei yksin riitä — teksti tarvitsee myös persoonallisuutta.
+Patternien poistaminen ei yksin riitä. Elävä teksti tarvitsee:
 
-- **Rytmin vaihtelu.** Vaihtele lyhyitä ja pitkiä virkkeitä. Monotoninen virkerakenne on AI:n tunnusmerkki.
-- **Monimutkaisuuden tunnustaminen.** Asiat voivat olla ristiriitaisia, epäselviä tai keskeneräisiä. AI yrittää ratkaista kaiken siististi.
-- **Konkreettiset yksityiskohdat.** Korvaa yleistykset yksityiskohdilla. "Monet yritykset" → "Kolme suurinta kilpailijaa".
-- **Harkittu epätäydellisyys.** Sivujuonteet, ajatuksen kehittyminen kesken tekstin, itsekorjaus — nämä ovat ihmisen kirjoittamisen merkkejä.
+- **Rytmin vaihtelu.** Lyhyt virke. Sitten pidempi joka ottaa aikansa. Monotoninen rakenne paljastaa AI:n.
+- **Reagoi, älä vain raportoi.** Kun tekstilaji sallii, ota kantaa. "En tiedä mitä tästä ajatella" on inhimillisempää kuin neutraali lista.
+- **Tunnusta monimutkaisuus.** Asiat voivat olla ristiriitaisia tai keskeneräisiä. AI ratkaisee kaiken siististi.
+- **Spesifisyys.** "Monet yritykset" → "Kolme suurinta kilpailijaa". Konkreettisuus on uskottavuutta.
+- **Harkittu epätäydellisyys.** Sivujuonteet, itsekorjaus, ajatuksen kehittyminen kesken tekstin.
+- **Rekisterien sekoittaminen.** Luonnollinen suomi vaihtaa rekisteriä tilanteen mukaan. AI kirjoittaa yhtenäistä kirjakieltä tai kömpelyä puhekieltä — ei koskaan molempia luontevasti.
 </finnish_voice>
 
 <process>
 ## Prosessi
 
-1. **Tunnista** — Lue teksti ja merkitse AI-patternit
-2. **Uudelleenkirjoita** — Korvaa patternit luonnollisilla rakenteilla
-3. **Säilytä merkitys** — Älä muuta asiasisältöä
-4. **Säilytä rekisteri** — Jos alkuperäinen on virallista, pidä virallisena
-5. **Lisää persoonallisuutta** — Tuo kirjoittajan ääni esiin
+1. **Tunnista.** Lue teksti ja merkitse AI-patternit
+2. **Uudelleenkirjoita.** Korvaa patternit luonnollisilla rakenteilla
+3. **Säilytä merkitys.** Älä muuta asiasisältöä
+4. **Säilytä rekisteri.** Jos alkuperäinen on virallista, pidä virallisena
+5. **Lisää persoonallisuutta.** Tuo kirjoittajan ääni esiin
 
 ## Adaptiivinen workflow
 
@@ -68,7 +72,7 @@ AI-tunnusmerkkien poistaminen ei yksin riitä — teksti tarvitsee myös persoon
 Käsittele suoraan. Palauta luonnollistettu teksti + muutosyhteenveto.
 
 **Pitkä teksti (yli 500 sanaa):**
-1. Analysoi ensin — listaa löydetyt AI-patternit ja niiden esiintymät
+1. Analysoi ensin: listaa löydetyt AI-patternit ja niiden esiintymät
 2. Esitä löydökset käyttäjälle
 3. Kysy epäselvistä tapauksista (onko piirre AI-pattern vai tietoinen valinta?)
 4. Toteuta luonnollistaminen
@@ -77,7 +81,7 @@ Käsittele suoraan. Palauta luonnollistettu teksti + muutosyhteenveto.
 <examples>
 ## Esimerkkipatternit
 
-26 AI-patternia on jaettu kahteen ryhmään: suomenkieliset (suomelle ominaiset rakenteet) ja universaalit (kaikissa kielissä esiintyvät, tunnistetaan ja korjataan suomeksi). Alla 7 kanonista esimerkkiä. Täysi 26 kategorian patternilista: ks. references/patterns.md
+26 AI-patternia on jaettu kahteen ryhmään: suomenkieliset (suomelle ominaiset rakenteet) ja universaalit (kaikissa kielissä esiintyvät, tunnistetaan ja korjataan suomeksi). Alla 6 kanonista esimerkkiä. Täysi 26 kategorian patternilista: ks. references/patterns.md
 
 ### Suomenkieliset patternit
 
@@ -109,24 +113,15 @@ Jälkeen: Arvioimme miten tuotteen laatua voisi parantaa. Kehityspotentiaalia l�
 
 **#13 Merkittävyyden liioittelu**
 AI paisuttaa kaiken "merkittäväksi", "keskeiseksi" tai "ratkaisevaksi".
-Merkkisanat: merkittävä, keskeinen, ratkaiseva rooli, olennainen, elintärkeä, kriittinen
-
 Ennen: Tekoäly tulee olemaan merkittävässä ja keskeisessä roolissa tulevaisuuden ratkaisevien haasteiden ratkaisemisessa.
 Jälkeen: Tekoälystä tulee tärkeä työkalu moniin ongelmiin.
 
 **#15 Mielistelevä sävy**
-AI kehuu kysyjää tai aihevalintaa. Suomessa tämä on erityisen kiusallista.
-Merkkisanat: Hyvä kysymys!, Ehdottomasti!, Aivan oikein!, Erinomainen huomio!
+AI kehuu kysyjää tai aihevalintaa. Suomessa tämä on erityisen kiusallista. Alkaa usein sanoilla "Hyvä kysymys!", "Ehdottomasti!" tai "Erinomainen huomio!".
 
 Ennen: Hyvä kysymys! Tämä on ehdottomasti yksi tärkeimmistä aiheista tällä hetkellä.
 Jälkeen: Aihe on ajankohtainen.
 
-**#17 Täytesanat ja -lauseet**
-AI aloittaa tai täyttää kappaleita fraaseilla jotka eivät lisää sisältöä.
-Merkkisanat: On syytä huomata, Tässä yhteydessä on tärkeää, Kuten aiemmin mainittiin
-
-Ennen: On syytä huomata, että tässä yhteydessä on tärkeää ymmärtää alustan arkkitehtuuri ennen käyttöönottoa.
-Jälkeen: Ymmärrä alustan arkkitehtuuri ennen käyttöönottoa.
 </examples>
 
 <output_format>
@@ -134,8 +129,8 @@ Jälkeen: Ymmärrä alustan arkkitehtuuri ennen käyttöönottoa.
 
 Kun olet luonnollistanut tekstin, palauta:
 
-1. **Uudelleenkirjoitettu teksti** — kokonaisuudessaan
-2. **Muutosyhteenveto** (valinnainen, oletuksena mukana) — lyhyt lista korjatuista patterneista
+1. **Uudelleenkirjoitettu teksti** kokonaisuudessaan
+2. **Muutosyhteenveto** (valinnainen, oletuksena mukana), lyhyt lista korjatuista patterneista
 
 Jos käyttäjä pyytää vain tekstiä ilman selityksiä, jätä muutosyhteenveto pois.
 </output_format>
@@ -145,7 +140,7 @@ Jos käyttäjä pyytää vain tekstiä ilman selityksiä, jätä muutosyhteenvet
 
 - **Älä muuta asiasisältöä.** Jos alkuperäisessä on fakta, se säilyy.
 - **Älä yksinkertaista.** Luonnollistaminen ei tarkoita lapsenkielistä versiota.
-- **Kunnioita rekisteriä.** Virallinen teksti pysyy virallisena — vain AI-patternit poistetaan.
+- **Kunnioita rekisteriä.** Virallinen teksti pysyy virallisena. Vain AI-patternit poistetaan.
 - **Älä lisää omaa sisältöä.** Et keksi uusia väitteitä tai esimerkkejä.
 - **Kysy epäselvissä tapauksissa.** Jos et ole varma onko jokin piirre AI-pattern vai kirjoittajan tietoinen valinta, kysy käyttäjältä.
 - **Jo luonnollinen teksti.** Jos teksti on jo luonnollista, ilmoita se äläkä tee turhia muutoksia.
