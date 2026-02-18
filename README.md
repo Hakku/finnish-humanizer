@@ -47,7 +47,7 @@ Täysi patternilista esimerkkeineen: [`finnish-humanizer/references/patterns.md`
 | Aider | Editori | `dist/generic/finnish-humanizer.md` |
 | Bolt.new | Editori | `dist/generic/finnish-humanizer.md` |
 | Amazon Q | Editori | `dist/generic/finnish-humanizer.md` |
-| Claude.ai | Chat | `dist/finnish-humanizer.zip` |
+| Claude.ai | Chat | `dist/finnish-humanizer.skill` |
 | ChatGPT | Chat | Custom GPT / `dist/generic/` |
 | Gemini Gems | Chat | `dist/generic/finnish-humanizer.md` |
 | Perplexity Spaces | Chat | `dist/generic/finnish-humanizer.md` |
@@ -64,7 +64,6 @@ Täysi patternilista esimerkkeineen: [`finnish-humanizer/references/patterns.md`
 2. Käynnistä Claude Code uudelleen
 3. Kutsu: `/finnish-humanizer [tiedostopolku tai teksti]`
 
-**CC-lisäasetukset:** Lisää frontmatteriin `argument-hint: "[tiedostopolku tai teksti]"` saadaksesi käyttövinkin slash-komennon yhteyteen.
 
 </details>
 
@@ -152,7 +151,7 @@ aider --read dist/generic/finnish-humanizer.md --read finnish-humanizer/referenc
 <details>
 <summary><strong>Claude.ai (projekti)</strong></summary>
 
-1. [Lataa `finnish-humanizer.zip`](https://github.com/Hakku/finnish-humanizer/releases/latest/download/finnish-humanizer.zip) (tai `dist/finnish-humanizer.zip` reposta)
+1. [Lataa `finnish-humanizer.skill`](https://github.com/Hakku/finnish-humanizer/releases/latest/download/finnish-humanizer.skill) (tai `dist/finnish-humanizer.skill` reposta)
 2. Avaa [claude.ai](https://claude.ai) ja luo uusi projekti
 3. Lisää ZIP projektin **Project knowledge** -osioon
 
