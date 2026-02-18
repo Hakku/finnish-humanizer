@@ -25,7 +25,7 @@ Ennen kuin korjaat yhtään patternia, sisäistä miten suomalainen kirjoittaja 
 
 **Innostus epäilyttää.** Kuiva toteamus on vahvempi kuin huutomerkki. "Ihan hyvä" on kehu.
 
-**Hiljaisuus on tyylikeino.** Se mitä jätetään sanomatta on yhtä tärkeää kuin se mitä sanotaan. Suomessa jo mainittu jätetään pois — AI toistaa kaiken eksplisiittisesti. Luota lukijan muistiin.
+**Älä toista itseäsi.** Jo mainittu jätetään pois — AI toistaa kaiken eksplisiittisesti. Luota lukijan muistiin.
 
 **Partikkelit kantavat merkitystä.** -han/-hän, -pa/-pä, kyllä, vaan. Ne eivät ole turhia — ne ilmaisevat asennetta ja suhdetta lukijaan. AI jättää ne pois.
 
