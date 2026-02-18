@@ -4,6 +4,17 @@
 [![Version](https://img.shields.io/badge/version-1.1.0-green.svg)](https://github.com/Hakku/finnish-humanizer/releases)
 [![Platforms](https://img.shields.io/badge/alustat-15-purple.svg)](#tuetut-alustat)
 
+**Finnish Humanizer** detects and removes AI-generated patterns from Finnish text — passive voice overuse, missing particles, translation structures, and flattery — making it read like a human wrote it.
+
+Supports 15 platforms: Claude Code, Claude.ai, Cursor, GitHub Copilot, Windsurf, Cline, Continue, JetBrains AI, ChatGPT, Gemini Gems, and more.
+
+**Quick start:** Download your platform's file from [`dist/`](dist/) and follow the installation guide below.
+
+→ [Finnish documentation](#ongelma)
+
+---
+
+
 Tunnistaa ja poistaa AI-generoidun suomenkielisen tekstin tunnusmerkit. Tekee tekstistä luonnollisempaa ja ihmisen kirjoittaman kuuloista.
 
 ## Ongelma
