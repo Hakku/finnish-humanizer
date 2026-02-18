@@ -1,7 +1,7 @@
 # Finnish Humanizer
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.1.0-green.svg)](https://github.com/Hakku/finnish-humanizer/releases)
+[![Version](https://img.shields.io/badge/version-1.2.0-green.svg)](https://github.com/Hakku/finnish-humanizer/releases)
 [![Platforms](https://img.shields.io/badge/alustat-15-purple.svg)](#tuetut-alustat)
 
 **Finnish Humanizer** detects and removes AI-generated patterns from Finnish text — passive voice overuse, missing particles, translation structures, and flattery — making it read like a human wrote it.
