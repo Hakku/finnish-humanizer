@@ -107,11 +107,12 @@ def build_chatgpt_patterns():
         count=1,
         flags=re.DOTALL,
     )
-    text = text.replace(
-        "esimerkkeineen. SKILL.md sisältää 7 kanonista esimerkkiä;"
-        " tämä tiedosto sisältää loput.",
+    text = re.sub(
+        r"esimerkkeineen\. SKILL\.md sisältää \d+ kanonista esimerkkiä;"
+        r" tämä tiedosto sisältää loput\.",
         "esimerkkeineen + 5 tyylimerkintää."
         " instructions.md sisältää kanonisia esimerkkejä; tämä tiedosto sisältää loput.",
+        text,
     )
     out = DIST / "chatgpt" / "patterns.md"
     out.parent.mkdir(parents=True, exist_ok=True)

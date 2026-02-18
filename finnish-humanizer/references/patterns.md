@@ -1,6 +1,6 @@
 # Finnish Humanizer: Täysi patternilista
 
-Kaikki 26 AI-patternia esimerkkeineen. SKILL.md sisältää 7 kanonista esimerkkiä; tämä tiedosto sisältää loput.
+Kaikki 26 AI-patternia esimerkkeineen. SKILL.md sisältää 6 kanonista esimerkkiä; tämä tiedosto sisältää loput.
 
 ## Sisällysluettelo
 
