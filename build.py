@@ -118,8 +118,8 @@ def build_chatgpt_patterns():
     return len(text)
 
 
-def build_zip():
-    """Build dist/finnish-humanizer.zip for Claude.ai.
+def build_skill():
+    """Build dist/finnish-humanizer.skill for Claude.ai.
 
     Claude.ai skill upload only accepts name + description in YAML frontmatter.
     Strip license, allowed-tools, metadata before packaging.
@@ -142,11 +142,11 @@ def build_zip():
             kept.append(f"description: {short}")
     stripped = "---\n" + "\n".join(kept) + "\n---" + parts[2]
 
-    zip_path = DIST / "finnish-humanizer.zip"
-    with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
+    skill_path = DIST / "finnish-humanizer.skill"
+    with zipfile.ZipFile(skill_path, "w", zipfile.ZIP_DEFLATED) as zf:
         zf.writestr("finnish-humanizer/SKILL.md", stripped)
         zf.write(PATTERNS_MD, "finnish-humanizer/references/patterns.md")
-    return zip_path
+    return skill_path
 
 
 def main():
@@ -161,9 +161,9 @@ def main():
     chars = build_chatgpt_patterns()
     print(f"  {'chatgpt':12s} {'chatgpt/patterns.md':50s} {chars:>6,} merkkia")
 
-    zip_path = build_zip()
-    print(f"\nZIP: {zip_path.relative_to(REPO)}")
-    with zipfile.ZipFile(zip_path) as zf:
+    skill_path = build_skill()
+    print(f"\nSKILL: {skill_path.relative_to(REPO)}")
+    with zipfile.ZipFile(skill_path) as zf:
         print(f"  Sisalto: {', '.join(zf.namelist())}")
 
     print("\n[!] dist/chatgpt/instructions.md on manuaalinen -- tarkista synkroni")
