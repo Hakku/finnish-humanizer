@@ -16,15 +16,15 @@ Ennen kuin korjaat yhtään patternia, sisäistä miten suomalainen kirjoittaja 
 
 **Suoruus.** Suomalainen sanoo asian ja siirtyy eteenpäin. Ei johdattelua, ei pehmentämistä. "Tämä ei toimi" on täysi lause.
 
-**Lyhyys on voimaa.** Lyhyt virke ei ole laiska — se on täsmällinen. Pitkä virke on perusteltava.
+**Lyhyys on voimaa.** Lyhyt virke ei ole laiska – se on täsmällinen. Pitkä virke on perusteltava.
 
 **Toisto on sallittu.** Saman sanan käyttö kahdesti on normaalia. Synonyymikierto kuulostaa suomessa teennäiseltä.
 
 **Innostus epäilyttää.** Kuiva toteamus on vahvempi kuin huutomerkki. "Ihan hyvä" on kehu.
 
-**Älä toista itseäsi.** Jo mainittu jätetään pois — AI toistaa kaiken eksplisiittisesti. Luota lukijan muistiin.
+**Älä toista itseäsi.** Jo mainittu jätetään pois – AI toistaa kaiken eksplisiittisesti. Luota lukijan muistiin.
 
-**Partikkelit kantavat merkitystä.** -han/-hän, -pa/-pä, kyllä, vaan. Ne eivät ole turhia — ne ilmaisevat asennetta ja suhdetta lukijaan. AI jättää ne pois.
+**Partikkelit kantavat merkitystä.** -han/-hän, -pa/-pä, kyllä, vaan. Ne eivät ole turhia – ne ilmaisevat asennetta ja suhdetta lukijaan. AI jättää ne pois.
 
 **Sanajärjestys on työkalu.** "Uuden järjestelmän suunnitteli tiimimme" painottaa eri asiaa kuin "Tiimimme suunnitteli uuden järjestelmän". AI tuottaa jäykkää SVO:ta eikä hyödynnä tätä vapautta.
 
@@ -34,7 +34,7 @@ Ennen kuin korjaat yhtään patternia, sisäistä miten suomalainen kirjoittaja 
 > Tämä on erittäin merkittävä kehitysaskel, joka tulee vaikuttamaan laajasti alan tulevaisuuteen. On syytä huomata, että kyseinen innovaatio tarjoaa lukuisia mahdollisuuksia eri sidosryhmille. Haasteista huolimatta tulevaisuus näyttää valoisalta.
 
 **Elävä:**
-> Iso juttu alalle. En ole varma mihin tämä lopulta johtaa, mutta hyötyjiä on — varsinkin ne jotka ovat odottaneet tällaista jo vuosia.
+> Iso juttu alalle. En ole varma mihin tämä lopulta johtaa, mutta hyötyjiä on – varsinkin ne jotka ovat odottaneet tällaista jo vuosia.
 
 ### Miten persoonallisuutta lisätään
 
@@ -45,7 +45,7 @@ Patternien poistaminen ei yksin riitä. Elävä teksti tarvitsee:
 - **Tunnusta monimutkaisuus.** Asiat voivat olla ristiriitaisia tai keskeneräisiä. AI ratkaisee kaiken siististi.
 - **Spesifisyys.** "Monet yritykset" → "Kolme suurinta kilpailijaa". Konkreettisuus on uskottavuutta.
 - **Harkittu epätäydellisyys.** Sivujuonteet, itsekorjaus, ajatuksen kehittyminen kesken tekstin.
-- **Rekisterien sekoittaminen.** Luonnollinen suomi vaihtaa rekisteriä tilanteen mukaan. AI kirjoittaa yhtenäistä kirjakieltä tai kömpelyä puhekieltä — ei koskaan molempia luontevasti.
+- **Rekisterien sekoittaminen.** Luonnollinen suomi vaihtaa rekisteriä tilanteen mukaan. AI kirjoittaa yhtenäistä kirjakieltä tai kömpelyä puhekieltä – ei koskaan molempia luontevasti.
 </finnish_voice>
 
 <process>
