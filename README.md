@@ -152,7 +152,7 @@ aider --read dist/generic/finnish-humanizer.md --read finnish-humanizer/referenc
 
 1. [Lataa `finnish-humanizer.skill`](https://github.com/Hakku/finnish-humanizer/releases/latest/download/finnish-humanizer.skill) (tai `dist/finnish-humanizer.skill` reposta)
 2. Avaa [claude.ai](https://claude.ai) ja luo uusi projekti
-3. Lisää ZIP projektin **Project knowledge** -osioon
+3. Lisää `.skill`-tiedosto projektin **Project knowledge** -osioon
 
 Vaihtoehtoisesti: kopioi `finnish-humanizer/SKILL.md`:n sisältö projektin **Custom instructions** -kenttään ja lisää `references/patterns.md` tiedostona.
 
@@ -239,7 +239,7 @@ Luonnollista tämä teksti. Älä selitä muutoksia.
 - Toimii vain suomenkieliselle tekstille
 - Ei muuta asiasisältöä, vain esitystapaa
 - Ei yksinkertaista, virallinen teksti pysyy virallisena
-- Ei korvaa ihmisen editointia, poistaa AI-tunnusmerkkejä, ei tee tekstistä "hyvää"
+- Ei korvaa ihmisen editointia — poistaa AI-tunnusmerkit, mutta ei tee tekstistä "hyvää"
 
 ## Kehitys
 
