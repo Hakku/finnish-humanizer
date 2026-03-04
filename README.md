@@ -10,20 +10,19 @@ Supports 15 platforms: Claude Code, Claude.ai, Cursor, GitHub Copilot, Windsurf,
 
 **Quick start:** Download your platform's file from [`dist/`](dist/) and follow the installation guide below.
 
-→ [Finnish documentation](#ongelma)
-
 ---
 
+*Dokumentaatio jatkuu suomeksi.*
 
-Tunnistaa ja poistaa AI-generoidun suomenkielisen tekstin tunnusmerkit. Tekee tekstistä luonnollisempaa ja ihmisen kirjoittaman kuuloista.
+Tunnistaa ja poistaa AI-generoidun suomenkielisen tekstin tunnusmerkit.
 
 ## Ongelma
 
-AI-generoitu suomi on tunnistettavaa: passiivin ylikäyttö, puuttuvat partikkelit, käännösrakenteet, mielistelevä sävy. Nämä patternit toistuvat kaikissa LLM:issä ja tekevät tekstistä robottimaisen.
+AI-generoitu suomi on tunnistettavaa: passiivin ylikäyttö, puuttuvat partikkelit, käännösrakenteet, mielistelevä sävy. Samat patternit toistuvat mallista riippumatta.
 
 ## Ratkaisu
 
-26 AI-patternia (12 suomenkielistä + 14 universaalia) ja 5 tyylimerkintää, joiden avulla teksti muunnetaan luonnolliseksi suomeksi. Ei käännä, ei yksinkertaista. Poistaa vain AI-tunnusmerkit ja tuo kirjoittajan äänen esiin.
+26 AI-patternia (12 suomenkielistä + 14 universaalia) ja 5 tyylimerkintää. Näillä teksti muunnetaan luonnolliseksi suomeksi. Ei käännä, ei yksinkertaista. Poistaa vain AI-tunnusmerkit ja tuo kirjoittajan äänen esiin.
 
 **Ennen:**
 > Tämä on erittäin merkittävä kehitysaskel, joka tulee vaikuttamaan laajasti alan tulevaisuuteen. On syytä huomata, että kyseinen innovaatio tarjoaa lukuisia mahdollisuuksia eri sidosryhmille.
@@ -241,6 +240,22 @@ Luonnollista tämä teksti. Älä selitä muutoksia.
 - Ei muuta asiasisältöä, vain esitystapaa
 - Ei yksinkertaista, virallinen teksti pysyy virallisena
 - Ei korvaa ihmisen editointia, poistaa AI-tunnusmerkkejä, ei tee tekstistä "hyvää"
+
+## Kehitys
+
+Generoi dist-tiedostot kanonisesta lähteestä (`finnish-humanizer/SKILL.md`):
+
+```bash
+py build.py
+```
+
+Tarkista GitHub-viittausten saatavuus pushin jälkeen:
+
+```bash
+py build.py --verify
+```
+
+Arkkitehtuuripäätökset ja eval-kehys: [DEVELOPMENT.md](DEVELOPMENT.md).
 
 ## Lisenssi
 
