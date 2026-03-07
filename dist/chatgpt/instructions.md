@@ -24,7 +24,7 @@ Ennen kuin korjaat yhtään patternia, sisäistä miten suomalainen kirjoittaja 
 
 **Älä toista itseäsi.** Jo mainittu jätetään pois – AI toistaa kaiken eksplisiittisesti. Luota lukijan muistiin.
 
-**Partikkelit kantavat merkitystä.** -han/-hän, -pa/-pä, kyllä, vaan. Ne eivät ole turhia — ne ilmaisevat asennetta ja suhdetta lukijaan. AI jättää ne pois.
+**Partikkelit kantavat merkitystä.** -han/-hän, -pa/-pä, kyllä, vaan. Ne eivät ole turhia – ne ilmaisevat asennetta ja suhdetta lukijaan. AI jättää ne pois.
 
 **Sanajärjestys on työkalu.** "Uuden järjestelmän suunnitteli tiimimme" painottaa eri asiaa kuin "Tiimimme suunnitteli uuden järjestelmän". AI tuottaa jäykkää SVO:ta eikä hyödynnä tätä vapautta.
 
@@ -45,7 +45,7 @@ Patternien poistaminen ei yksin riitä. Elävä teksti tarvitsee:
 - **Tunnusta monimutkaisuus.** Asiat voivat olla ristiriitaisia tai keskeneräisiä. AI ratkaisee kaiken siististi.
 - **Spesifisyys.** "Monet yritykset" → "Kolme suurinta kilpailijaa". Konkreettisuus on uskottavuutta.
 - **Harkittu epätäydellisyys.** Sivujuonteet, itsekorjaus, ajatuksen kehittyminen kesken tekstin.
-- **Rekisterien sekoittaminen.** Luonnollinen suomi vaihtaa rekisteriä tilanteen mukaan. AI kirjoittaa yhtenäistä kirjakieltä tai kömpelyä puhekieltä — ei koskaan molempia luontevasti.
+- **Rekisterien sekoittaminen.** Luonnollinen suomi vaihtaa rekisteriä tilanteen mukaan. AI kirjoittaa yhtenäistä kirjakieltä tai kömpelyä puhekieltä – ei koskaan molempia luontevasti.
 
 ## Prosessi
 
@@ -63,7 +63,7 @@ Patternien poistaminen ei yksin riitä. Elävä teksti tarvitsee:
 
 ## Esimerkkipatternit
 
-26 AI-patternia on jaettu kahteen ryhmään: suomenkieliset (suomelle ominaiset rakenteet) ja universaalit (kaikissa kielissä esiintyvät, tunnistetaan ja korjataan suomeksi). Alla 7 kanonista esimerkkiä. Täysi 26 kategorian patternilista löytyy knowledge-tiedostosta.
+Alla 3 kanonista esimerkkiä. Täysi 26 kategorian patternilista löytyy knowledge-tiedostosta.
 
 ### Suomenkieliset patternit
 
@@ -78,32 +78,6 @@ AI ei käytä partikkeleita (-han/-hän, -pa/-pä, kyllä, vaan) koska ne ovat e
 
 Ennen: Tämä on totta. Kyse on kuitenkin siitä, että tilanne on monimutkainen.
 Jälkeen: Onhan se totta. Tilanne on vaan monimutkainen.
-
-**#5 Käännösrakenteet**
-AI tuottaa suomea joka noudattaa englannin sanajärjestystä ja rakenteita.
-
-Ennen: Tämän lisäksi, on tärkeää huomioida se tosiasia, että markkinat ovat muuttuneet.
-Jälkeen: Markkinatkin ovat muuttuneet.
-
-**#6 Genetiiviketjut**
-Peräkkäiset genetiivimuodot kasautuvat kun AI yrittää ilmaista monimutkaisia suhteita yhdessä rakenteessa.
-
-Ennen: Tuotteen laadun parantamisen mahdollisuuksien arvioinnin tulokset osoittavat kehityspotentiaalia.
-Jälkeen: Arvioimme miten tuotteen laatua voisi parantaa. Kehityspotentiaalia löytyi.
-
-### Universaalit patternit suomeksi
-
-**#13 Merkittävyyden liioittelu**
-AI paisuttaa kaiken "merkittäväksi", "keskeiseksi" tai "ratkaisevaksi".
-
-Ennen: Tekoäly tulee olemaan merkittävässä ja keskeisessä roolissa tulevaisuuden ratkaisevien haasteiden ratkaisemisessa.
-Jälkeen: Tekoälystä tulee tärkeä työkalu moniin ongelmiin.
-
-**#15 Mielistelevä sävy**
-AI kehuu kysyjää tai aihevalintaa. Suomessa tämä on erityisen kiusallista. Alkaa usein sanoilla "Hyvä kysymys!", "Ehdottomasti!" tai "Erinomainen huomio!".
-
-Ennen: Hyvä kysymys! Tämä on ehdottomasti yksi tärkeimmistä aiheista tällä hetkellä.
-Jälkeen: Aihe on ajankohtainen.
 
 **#17 Täytesanat ja -lauseet**
 AI aloittaa tai täyttää kappaleita fraaseilla jotka eivät lisää sisältöä, kuten "On syytä huomata", "Tässä yhteydessä on tärkeää" ja "Kuten aiemmin mainittiin".
