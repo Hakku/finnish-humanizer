@@ -13,10 +13,8 @@ SKILL_MD = REPO / "finnish-humanizer" / "SKILL.md"
 PATTERNS_MD = REPO / "finnish-humanizer" / "references" / "patterns.md"
 DIST = REPO / "dist"
 
-GITHUB_PATTERNS_URL = (
-    "https://github.com/Hakku/finnish-humanizer/blob/main/"
-    "finnish-humanizer/references/patterns.md"
-)
+GITHUB_REPO = "https://github.com/Hakku/finnish-humanizer"
+GITHUB_PATTERNS_URL = f"{GITHUB_REPO}/blob/main/finnish-humanizer/references/patterns.md"
 LOCAL_REF = "ks. references/patterns.md"
 
 PLATFORMS = {
@@ -54,6 +52,13 @@ PLATFORMS = {
 
 CHAR_LIMITS = {"windsurf": 12_000}
 
+CHATGPT_INTRO = (
+    "# Finnish Humanizer: Täysi patternilista\n\n"
+    "Kaikki 26 AI-patternia esimerkkeineen + 5 tyylimerkintää."
+    " instructions.md sisältää kanonisia esimerkkejä; tämä tiedosto sisältää loput.\n\n"
+    "---"
+)
+
 
 def parse_skill():
     """Return (body, short_description) from SKILL.md."""
@@ -65,6 +70,8 @@ def parse_skill():
     fm = parts[1]
     match = re.search(r"^description:\s*(.+)$", fm, re.MULTILINE)
     desc_full = match.group(1).strip() if match else ""
+    if not desc_full:
+        raise ValueError("SKILL.md: description-kenttä puuttuu frontmatterista")
     desc_short = ". ".join(desc_full.split(". ")[:2]) + "."
 
     body = parts[2].lstrip("\n")
@@ -98,22 +105,27 @@ def build_platforms(body, desc):
 
 
 def build_chatgpt_patterns():
-    """Generate dist/chatgpt/patterns.md: source copy without TOC."""
+    """Generate dist/chatgpt/patterns.md: source copy without TOC, fixed intro."""
     text = PATTERNS_MD.read_text(encoding="utf-8")
-    text = re.sub(
+
+    # Remove TOC — fail build if not found (structure guard)
+    text, n = re.subn(
         r"\n## Sisällysluettelo\n.*?\n---\n",
         "\n---\n",
         text,
         count=1,
         flags=re.DOTALL,
     )
-    text = re.sub(
-        r"esimerkkeineen\. SKILL\.md sisältää \d+ kanonista esimerkkiä;"
-        r" tämä tiedosto sisältää loput\.",
-        "esimerkkeineen + 5 tyylimerkintää."
-        " instructions.md sisältää kanonisia esimerkkejä; tämä tiedosto sisältää loput.",
-        text,
-    )
+    if n == 0:
+        raise ValueError(
+            "build_chatgpt_patterns: TOC-korvaus epäonnistui — patterns.md:n rakenne muuttunut"
+        )
+
+    # Structural intro replace: swap everything before first ## heading
+    first_pattern = text.find("\n## ")
+    if first_pattern > 0:
+        text = CHATGPT_INTRO + text[first_pattern:]
+
     out = DIST / "chatgpt" / "patterns.md"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(text, encoding="utf-8", newline="\n")
@@ -162,14 +174,18 @@ def main():
 
     chars = build_chatgpt_patterns()
     print(f"  {'chatgpt':12s} {'chatgpt/patterns.md':50s} {chars:>6,} merkkia")
+    print("[!] dist/chatgpt/ manuaaliset tiedostot (ei buildattuja):")
+    print("    instructions.md -- erilainen rakenne, ei XML-tageja")
+    print("    GPT-SPEC.md     -- GPT-konfiguraatio")
+    print("    test-texts.md   -- testiaineisto")
+    print("    Tarkista synkroni kun SKILL.md body muuttuu.")
 
     skill_path = build_skill()
     print(f"\nSKILL: {skill_path.relative_to(REPO)}")
     with zipfile.ZipFile(skill_path) as zf:
         print(f"  Sisalto: {', '.join(zf.namelist())}")
 
-    print("\n[!] dist/chatgpt/instructions.md on manuaalinen -- tarkista synkroni")
-    print("Valmis.")
+    print("\nValmis.")
 
 
 if __name__ == "__main__":
