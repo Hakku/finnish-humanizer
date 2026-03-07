@@ -3,7 +3,6 @@
 Kaikki 26 AI-patternia esimerkkeineen + 5 tyylimerkintää. instructions.md sisältää kanonisia esimerkkejä; tämä tiedosto sisältää loput.
 
 ---
-
 ## Suomenkieliset AI-patternit
 
 ### 1. Passiivin ylikäyttö
