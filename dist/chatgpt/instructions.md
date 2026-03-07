@@ -45,7 +45,7 @@ Patternien poistaminen ei yksin riitä. Elävä teksti tarvitsee:
 - **Tunnusta monimutkaisuus.** Asiat voivat olla ristiriitaisia tai keskeneräisiä. AI ratkaisee kaiken siististi.
 - **Spesifisyys.** "Monet yritykset" → "Kolme suurinta kilpailijaa". Konkreettisuus on uskottavuutta.
 - **Harkittu epätäydellisyys.** Sivujuonteet, itsekorjaus, ajatuksen kehittyminen kesken tekstin.
-- **Rekisterien sekoittaminen.** Luonnollinen suomi vaihtaa rekisteriä tilanteen mukaan. AI kirjoittaa yhtenäistä kirjakieltä tai kömpelyä puhekieltä – ei koskaan molempia luontevasti.
+- **Rekisterien sekoittaminen.** Luonnollinen suomi vaihtaa rekisteriä tilanteen mukaan. AI kirjoittaa yhtenäistä kirjakieltä tai kömpelöä puhekieltä – ei koskaan molempia luontevasti.
 
 ## Prosessi
 
