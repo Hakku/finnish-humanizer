@@ -153,7 +153,7 @@
 >
 > Tulevaisuus näyttää valoisalta ja avaa uusia, jännittäviä mahdollisuuksia kaikille alan toimijoille. Ala jatkaa kehittymistään ja tarjoaa merkittäviä mahdollisuuksia niille, jotka ovat valmiita tarttumaan niihin.
 
-**Odotetut patternit:** Kaikki 26 patternia edustettuina tai lähes kaikki. GPT:n pitäisi käynnistää adaptiivinen workflow (>500 sanaa): ensin analyysi, sitten kysymykset, sitten toteutus.
+**Odotetut patternit:** Kaikki 27 patternia edustettuina tai lähes kaikki. GPT:n pitäisi käynnistää adaptiivinen workflow (>500 sanaa): ensin analyysi, sitten toteutus.
 
 ---
 

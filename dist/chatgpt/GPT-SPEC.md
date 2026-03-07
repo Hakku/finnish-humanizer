@@ -6,7 +6,7 @@ Finnish Humanizer — Luonnollista suomea
 
 ## Description (short, for GPT Store listing)
 
-Tunnistaa ja poistaa AI-generoidun suomenkielisen tekstin tunnusmerkit. 26 patternia + 5 tyylimerkintää. Liimaa teksti, saat luonnollisen version takaisin.
+Tunnistaa ja poistaa AI-generoidun suomenkielisen tekstin tunnusmerkit. 27 patternia + 5 tyylimerkintää. Liimaa teksti, saat luonnollisen version takaisin.
 
 ## Instructions
 
@@ -20,7 +20,7 @@ Lataa seuraava tiedosto GPT Builder → Knowledge -osioon:
 
 | Tiedosto | Kuvaus |
 |----------|--------|
-| `patterns.md` | Täysi 26 patternin lista esimerkkeineen + 5 tyylimerkintää + täysimittainen ennen/jälkeen -esimerkki |
+| `patterns.md` | Täysi 27 patternin lista esimerkkeineen + 5 tyylimerkintää + täysimittainen ennen/jälkeen -esimerkki |
 
 ## Conversation Starters
 
@@ -65,7 +65,7 @@ Testaa ennen julkaisua 10 tekstillä:
 - [x] Jo luonnollinen teksti (ei muutoksia tarvita), korjattu: kriittiset säännöt kohta 1
 - [x] Sekateksti (fi/en)
 - [x] Koodidokumentaatio (koodiesimerkit säilyvät)
-- [x] Pitkä teksti (>500 sanaa), korjattu: käyttäjän triggeröimä "analysoi"-tila
+- [x] Pitkä teksti (>500 sanaa), korjattu: automaattinen analysoi-first-polku (>500 sanaa)
 
 
 
