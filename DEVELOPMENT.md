@@ -13,7 +13,7 @@ finnish-humanizer/
 │   └── references/
 │       └── patterns.md                 ← Täysi 26 kategorian patternilista + 5 tyylimerkintää
 └── dist/                               ← Alustakohtaiset paketit (build-generoitu)
-    ├── finnish-humanizer.zip            ← Claude.ai ZIP-upload
+    ├── finnish-humanizer.skill          ← Claude.ai skill-upload
     ├── cursor/
     │   └── finnish-humanizer.mdc       ← Cursor (.cursor/rules/)
     ├── copilot/
@@ -45,16 +45,16 @@ Yksi kanoninen `SKILL.md` toimii kaikissa ympäristöissä (Claude.ai, Claude Co
 
 | | Unified (kanoninen) | CC deployed | Cursor | Copilot | Windsurf | Cline | Continue | JetBrains | Generic | Agents |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Frontmatter | `name`, `description`, `license`, `allowed-tools`, `metadata` | + `argument-hint` | `description`, `globs`, `alwaysApply` | `name`, `applyTo`, `description` | Ei | Ei | `name`, `globs`, `alwaysApply`, `description` | Ei | Ei | Ei |
+| Frontmatter | `name`, `description`, `license`, `allowed-tools`, `metadata` | identtinen | `description`, `globs`, `alwaysApply` | `name`, `applyTo`, `description` | Ei | Ei | `name`, `globs`, `alwaysApply`, `description` | Ei | Ei | Ei |
 | Body | Identtinen kaikilla | Identtinen | Identtinen (GitHub-linkit) | Identtinen (GitHub-linkit) | Identtinen (GitHub-linkit) | Identtinen (GitHub-linkit) | Identtinen (GitHub-linkit) | Identtinen (GitHub-linkit) | Identtinen (GitHub-linkit) | Identtinen (GitHub-linkit) |
 | `references/` | Sisällytetty | Sisällytetty | Linkki GitHubiin | Linkki GitHubiin | Linkki GitHubiin | Linkki GitHubiin | Linkki GitHubiin | Linkki GitHubiin | Linkki GitHubiin | Linkki GitHubiin |
 
 ### Esimerkkien valinta (SKILL.md)
 
-6 esimerkkiä valittu kattamaan:
+7 esimerkkiä valittu kattamaan:
 
 - **4 suomenkielistä** (#1, #4, #5, #6). Skillin uniikki arvo, koska Claude tuntee universaalit patternit jo
-- **2 universaalia** (#13, #15). Yleisimmät, näyttävät miten korjaus toimii suomeksi
+- **3 universaalia** (#13, #15, #17). Yleisimmät, näyttävät miten korjaus toimii suomeksi
 
 Loput 19 patternia ovat `references/patterns.md`:ssä.
 
@@ -69,7 +69,7 @@ SKILL.md käyttää XML-tageja ylätason jäsentelyyn (`<role>`, `<finnish_voice
 1. Lisää pattern `references/patterns.md`:hen oikeaan kategoriaan (suomenkielinen / universaali)
 2. Lisää Ennen/Jälkeen-esimerkit (vähintään yksi pari)
 3. Päivitä sisällysluettelo
-4. Jos pattern on erityisen yleinen tai tärkeä, harkitse sen lisäämistä myös `SKILL.md`:n 6 esimerkin joukkoon (korvaa vähiten hyödyllinen)
+4. Jos pattern on erityisen yleinen tai tärkeä, harkitse sen lisäämistä myös `SKILL.md`:n 7 esimerkin joukkoon (korvaa vähiten hyödyllinen)
 
 ### Patternin muokkaaminen
 
@@ -98,7 +98,7 @@ Skripti lukee `finnish-humanizer/SKILL.md`:n, erottaa frontmatterin ja bodyn, ja
 
 ### CC deployed version päivitys
 
-Kopioi unified SKILL.md → `~/.claude/skills/finnish-humanizer/SKILL.md` ja lisää `argument-hint` frontmatteriin. Kopioi `references/patterns.md` vastaavasti.
+Kopioi unified SKILL.md → `~/.claude/skills/finnish-humanizer/SKILL.md`. Kopioi `references/patterns.md` vastaavasti.
 
 ## Verifiointi ennen julkaisua
 
@@ -111,7 +111,7 @@ Kopioi unified SKILL.md → `~/.claude/skills/finnish-humanizer/SKILL.md` ja lis
 | XML-tagit | Jokainen avattu tagi suljetaan |
 | Ei `finnish-naturalizer`-viittauksia | 0 osumaa koko projektissa |
 | Ei `reference/`-viittauksia (yksikkö) | 0 osumaa koko projektissa |
-| ZIP sisältö | `finnish-humanizer/SKILL.md` + `finnish-humanizer/references/patterns.md` |
+| .skill sisältö | `finnish-humanizer/SKILL.md` + `finnish-humanizer/references/patterns.md` |
 | Cursor .mdc frontmatter | `description`, `globs`, `alwaysApply` |
 | Copilot .instructions.md frontmatter | `name`, `applyTo`, `description` |
 | Continue frontmatter | `name`, `globs`, `alwaysApply`, `description` |
