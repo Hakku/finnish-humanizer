@@ -8,6 +8,10 @@ finnish-humanizer/
 ├── LICENSE
 ├── DEVELOPMENT.md
 ├── build.py                            ← Build-skripti (generoi dist/)
+├── tests/
+│   └── test_build.py                  ← Yksikkötestit (stdlib unittest)
+├── docs/
+│   └── PLAN-distribution.md          ← Jakelustrategia (sisäinen)
 ├── finnish-humanizer/                  ← Kanoninen skill-sisältö
 │   ├── SKILL.md                        ← Unified (portatiiviinen)
 │   └── references/
@@ -80,12 +84,29 @@ Muokkaa suoraan relevanttia tiedostoa. Jos pattern esiintyy sekä `SKILL.md`:ss�
 Kaikki dist-paketit generoidaan automaattisesti `build.py`-skriptillä:
 
 ```
-py build.py
+py build.py       # Windows
+python3 build.py  # macOS/Linux
+```
+
+Vaatii Python 3.x. Ei ulkoisia riippuvuuksia (vain stdlib).
+
+Testit:
+
+```
+py -m unittest discover -s tests -v
 ```
 
 Skripti lukee `finnish-humanizer/SKILL.md`:n, erottaa frontmatterin ja bodyn, ja generoi alustakohtaiset tiedostot `dist/`-kansioon. Ainoa body-muutos: `ks. references/patterns.md` korvataan GitHub-URL:lla.
 
-**Poikkeus:** `dist/chatgpt/instructions.md` on manuaalinen tiedosto (erilainen rakenne, ei XML-tageja, Kriittiset säännöt -osio). Se EI päivity `build.py`:llä. Tarkista synkroni manuaalisesti kun SKILL.md:n body muuttuu.
+**Poikkeus — manuaaliset tiedostot `dist/chatgpt/`:**
+
+| Tiedosto | Syy |
+|----------|-----|
+| `instructions.md` | Erilainen rakenne, ei XML-tageja, Kriittiset säännöt -osio |
+| `GPT-SPEC.md` | GPT-konfiguraatio |
+| `test-texts.md` | Testiaineisto |
+
+Nämä eivät päivity `build.py`:llä. Tarkista synkroni manuaalisesti kun SKILL.md:n body muuttuu.
 
 ### build.py arkkitehtuuri
 
