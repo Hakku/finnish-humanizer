@@ -1,1 +1,4 @@
 dist/test-*.zip
+
+__pycache__/
+tests/__pycache__/

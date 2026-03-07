@@ -34,38 +34,23 @@ Ennen kuin korjaat yhtään patternia, sisäistä miten suomalainen kirjoittaja 
 Patternien poistaminen ei yksin riitä. Elävä teksti tarvitsee:
 
 - **Rytmin vaihtelu.** Lyhyt virke. Sitten pidempi joka ottaa aikansa. Monotoninen rakenne paljastaa AI:n.
-- **Reagoi, älä vain raportoi.** Kun tekstilaji sallii, ota kantaa. "En tiedä mitä tästä ajatella" on inhimillisempää kuin neutraali lista.
+- **Reagoi ja ole spesifinen.** Ota kantaa kun tekstilaji sallii. "Monet yritykset" → "Kolme suurinta kilpailijaa". Konkreettisuus on uskottavuutta.
 - **Tunnusta monimutkaisuus.** Asiat voivat olla ristiriitaisia tai keskeneräisiä. AI ratkaisee kaiken siististi.
-- **Spesifisyys.** "Monet yritykset" → "Kolme suurinta kilpailijaa". Konkreettisuus on uskottavuutta.
-- **Harkittu epätäydellisyys.** Sivujuonteet, itsekorjaus, ajatuksen kehittyminen kesken tekstin.
-- **Rekisterien sekoittaminen.** Luonnollinen suomi vaihtaa rekisteriä tilanteen mukaan. AI kirjoittaa yhtenäistä kirjakieltä tai kömpelyä puhekieltä – ei koskaan molempia luontevasti.
+- **Harkittu epätäydellisyys.** Sivujuonteet, itsekorjaus, ajatuksen kehittyminen kesken tekstin. Luonnollinen suomi vaihtaa rekisteriä – AI kirjoittaa yhtenäistä kirjakieltä eikä koskaan molempia luontevasti.
 </finnish_voice>
 
 <process>
-## Prosessi
+### Kaksi tilaa
 
-1. **Tunnista.** Lue teksti ja merkitse AI-patternit
-2. **Uudelleenkirjoita.** Korvaa patternit luonnollisilla rakenteilla
-3. **Säilytä merkitys.** Älä muuta asiasisältöä
-4. **Säilytä rekisteri.** Jos alkuperäinen on virallista, pidä virallisena
-5. **Lisää persoonallisuutta.** Tuo kirjoittajan ääni esiin
+**Oletus – "luonnollista":** Käyttäjä liimaa tekstin → luonnollista suoraan → palauta korjattu teksti + muutosyhteenveto. **Pitkä teksti (>500 sanaa):** Analysoi automaattisesti ensin, näytä löydetyt patternit, sitten luonnollista. Tämä estää massiiviset sokkorewritet.
 
-## Adaptiivinen workflow
-
-**Lyhyt teksti (alle 500 sanaa):**
-Käsittele suoraan. Palauta luonnollistettu teksti + muutosyhteenveto.
-
-**Pitkä teksti (yli 500 sanaa):**
-1. Analysoi ensin: listaa löydetyt AI-patternit ja niiden esiintymät
-2. Esitä löydökset käyttäjälle
-3. Kysy epäselvistä tapauksista (onko piirre AI-pattern vai tietoinen valinta?)
-4. Toteuta luonnollistaminen
+**"Analysoi"-tila:** Kun käyttäjä sanoo "analysoi", "analysoi ensin" tai "mitä patterneita" → palauta VAIN patternilista (numero, nimi, lainaus). ÄLÄ korjaa tekstiä, odota jatkopyyntöä.
 </process>
 
 <examples>
 ## Esimerkkipatternit
 
-26 AI-patternia on jaettu kahteen ryhmään: suomenkieliset (suomelle ominaiset rakenteet) ja universaalit (kaikissa kielissä esiintyvät, tunnistetaan ja korjataan suomeksi). Alla 7 kanonista esimerkkiä. Täysi 26 kategorian patternilista: https://github.com/Hakku/finnish-humanizer/blob/main/finnish-humanizer/references/patterns.md
+Alla 3 kanonista esimerkkiä. Täysi 26 kategorian patternilista: https://github.com/Hakku/finnish-humanizer/blob/main/finnish-humanizer/references/patterns.md
 
 ### Suomenkieliset patternit
 
@@ -80,31 +65,6 @@ AI ei käytä partikkeleita (-han/-hän, -pa/-pä, kyllä, vaan) koska ne ovat e
 
 Ennen: Tämä on totta. Kyse on kuitenkin siitä, että tilanne on monimutkainen.
 Jälkeen: Onhan se totta. Tilanne on vaan monimutkainen.
-
-**#5 Käännösrakenteet**
-AI tuottaa suomea joka noudattaa englannin sanajärjestystä ja rakenteita.
-
-Ennen: Tämän lisäksi, on tärkeää huomioida se tosiasia, että markkinat ovat muuttuneet.
-Jälkeen: Markkinatkin ovat muuttuneet.
-
-**#6 Genetiiviketjut**
-Peräkkäiset genetiivimuodot kasautuvat kun AI yrittää ilmaista monimutkaisia suhteita yhdessä rakenteessa.
-
-Ennen: Tuotteen laadun parantamisen mahdollisuuksien arvioinnin tulokset osoittavat kehityspotentiaalia.
-Jälkeen: Arvioimme miten tuotteen laatua voisi parantaa. Kehityspotentiaalia löytyi.
-
-### Universaalit patternit suomeksi
-
-**#13 Merkittävyyden liioittelu**
-AI paisuttaa kaiken "merkittäväksi", "keskeiseksi" tai "ratkaisevaksi".
-Ennen: Tekoäly tulee olemaan merkittävässä ja keskeisessä roolissa tulevaisuuden ratkaisevien haasteiden ratkaisemisessa.
-Jälkeen: Tekoälystä tulee tärkeä työkalu moniin ongelmiin.
-
-**#15 Mielistelevä sävy**
-AI kehuu kysyjää tai aihevalintaa. Suomessa tämä on erityisen kiusallista. Alkaa usein sanoilla "Hyvä kysymys!", "Ehdottomasti!" tai "Erinomainen huomio!".
-
-Ennen: Hyvä kysymys! Tämä on ehdottomasti yksi tärkeimmistä aiheista tällä hetkellä.
-Jälkeen: Aihe on ajankohtainen.
 
 **#17 Täytesanat ja -lauseet**
 AI aloittaa tai täyttää kappaleita fraaseilla jotka eivät lisää sisältöä, kuten "On syytä huomata", "Tässä yhteydessä on tärkeää" ja "Kuten aiemmin mainittiin".
@@ -128,12 +88,12 @@ Jos käyttäjä pyytää vain tekstiä ilman selityksiä, jätä muutosyhteenvet
 <constraints>
 ## Reunaehdot
 
+- **Tarkista ensin onko teksti jo luonnollista.** Puhekielinen, arkinen tai epätäydellinen teksti ON luonnollista – älä parannele, siloita tai lisää partikkeleita. Jos teksti ei sisällä AI-patterneita, vastaa: "Teksti on jo luonnollista, ei muutoksia tarvita."
 - **Älä muuta asiasisältöä.** Jos alkuperäisessä on fakta, se säilyy.
 - **Älä yksinkertaista.** Luonnollistaminen ei tarkoita lapsenkielistä versiota.
 - **Kunnioita rekisteriä.** Virallinen teksti pysyy virallisena. Vain AI-patternit poistetaan.
 - **Älä lisää omaa sisältöä.** Et keksi uusia väitteitä tai esimerkkejä.
 - **Kysy epäselvissä tapauksissa.** Jos et ole varma onko jokin piirre AI-pattern vai kirjoittajan tietoinen valinta, kysy käyttäjältä.
-- **Jo luonnollinen teksti.** Jos teksti on jo luonnollista, ilmoita se äläkä tee turhia muutoksia.
 - **Koodiesimerkkit ja tekninen sanasto.** Säilytä englanninkieliset koodiesimerkkit, tekniset termit ja lainaukset sellaisinaan.
 - **Sekateksti (fi/en).** Käsittele vain suomenkieliset osat. Jätä englanninkieliset osiot koskematta.
 </constraints>
