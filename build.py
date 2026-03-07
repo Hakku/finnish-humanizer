@@ -230,6 +230,7 @@ def main():
     print(f"  {'chatgpt':12s} {'chatgpt/patterns.md':50s} {chars:>6,} merkkia")
     print("[!] dist/chatgpt/ manuaaliset tiedostot (ei buildattuja):")
     print("    instructions.md -- erilainen rakenne, ei XML-tageja")
+    print("    GPT-SPEC.md     -- count-tarkistus MANUAL_FILES:ssä; sisältödrift vaatii manuaalitarkistuksen")
     print("    test-texts.md   -- testiaineisto")
     print("    # test-texts.md ei ole MANUAL_FILES:ssä — sisältää testitekstejä, ei lukuviittauksia")
     print("    Tarkista synkroni kun SKILL.md body muuttuu.")
