@@ -1,6 +1,6 @@
 # Finnish Humanizer: Täysi patternilista
 
-Kaikki 26 AI-patternia esimerkkeineen + 5 tyylimerkintää. instructions.md sisältää kanonisia esimerkkejä; tämä tiedosto sisältää loput.
+Kaikki 27 AI-patternia esimerkkeineen + 5 tyylimerkintää. instructions.md sisältää kanonisia esimerkkejä; tämä tiedosto sisältää loput.
 
 ---
 ## Suomenkieliset AI-patternit

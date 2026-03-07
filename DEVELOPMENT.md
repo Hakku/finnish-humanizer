@@ -61,7 +61,7 @@ Yksi kanoninen `SKILL.md` toimii kaikissa ympäristöissä (Claude.ai, Claude Co
 - **#4 Puuttuvat partikkelit** — kielikohtainen, AI jättää nämä aina pois
 - **#17 Täytesanat ja -lauseet** — universaali, helppo tunnistaa
 
-Loput 23 patternia ovat `references/patterns.md`:ssä.
+Muut patternit ovat `references/patterns.md`:ssä.
 
 ### XML-tagit
 
@@ -127,7 +127,7 @@ Kopioi unified SKILL.md → `~/.claude/skills/finnish-humanizer/SKILL.md`. Kopio
 | Tarkistus | Kriteeri |
 |---|---|
 | SKILL.md rivimäärä | < 160 |
-| references/patterns.md | 26 patternia + 5 tyylimerkintää |
+| references/patterns.md | 27 patternia + 5 tyylimerkintää |
 | Frontmatter-kentät | `name`, `description`, `license`, `allowed-tools`, `metadata` |
 | SKILL.md description (raw) | < 1024 merkkiä |
 | Dist description (desc_short) | < 200 merkkiä (build rajoittaa automaattisesti) |

@@ -359,5 +359,58 @@ class TestChatGPTPatterns(TempDirTestCase):
         self.assertIn("TOC", str(ctx.exception))
 
 
+class TestCountPatterns(TempDirTestCase):
+
+    def test_counts_numbered_headings(self):
+        """### N. headings counted correctly."""
+        p = self.tmpdir / "patterns.md"
+        p.write_text("### 1. Foo\n\n### 2. Bar\n\n### 3. Baz\n", encoding="utf-8")
+        with patch.object(build, "PATTERNS_MD", p):
+            self.assertEqual(build._count_patterns(), 3)
+
+    def test_empty_file_returns_zero(self):
+        p = self.tmpdir / "patterns.md"
+        p.write_text("# Title\n\nNo patterns here.\n", encoding="utf-8")
+        with patch.object(build, "PATTERNS_MD", p):
+            self.assertEqual(build._count_patterns(), 0)
+
+
+class TestCheckManualSync(TempDirTestCase):
+
+    def test_stale_count_detected(self):
+        """Stale pattern count in manual file produces warning."""
+        f = self.tmpdir / "instructions.md"
+        f.write_text("Täysi 26 kategorian patternilista löytyy...", encoding="utf-8")
+        with patch.object(build, "MANUAL_FILES", [f]):
+            warnings = build.check_manual_sync(27)
+        self.assertEqual(len(warnings), 1)
+        self.assertIn("26", warnings[0])
+        self.assertIn("27", warnings[0])
+
+    def test_correct_count_no_warning(self):
+        """Correct count produces no warning."""
+        f = self.tmpdir / "instructions.md"
+        f.write_text("Täysi 27 kategorian patternilista löytyy...", encoding="utf-8")
+        with patch.object(build, "MANUAL_FILES", [f]):
+            self.assertEqual(build.check_manual_sync(27), [])
+
+    def test_missing_file_skipped(self):
+        """Non-existent manual file does not raise."""
+        missing = self.tmpdir / "nonexistent.md"
+        with patch.object(build, "MANUAL_FILES", [missing]):
+            self.assertEqual(build.check_manual_sync(27), [])
+
+    def test_multiple_stale_occurrences(self):
+        """Multiple stale counts in one file each produce a warning."""
+        f = self.tmpdir / "dev.md"
+        f.write_text(
+            "| patterns.md | 26 patternia + 5 |\n| badge | 26 AI-patternia |\n",
+            encoding="utf-8",
+        )
+        with patch.object(build, "MANUAL_FILES", [f]):
+            warnings = build.check_manual_sync(27)
+        self.assertEqual(len(warnings), 2)
+
+
 if __name__ == "__main__":
     unittest.main()
