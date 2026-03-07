@@ -72,7 +72,7 @@ Käsittele suoraan. Palauta luonnollistettu teksti + muutosyhteenveto.
 <examples>
 ## Esimerkkipatternit
 
-26 AI-patternia on jaettu kahteen ryhmään: suomenkieliset (suomelle ominaiset rakenteet) ja universaalit (kaikissa kielissä esiintyvät, tunnistetaan ja korjataan suomeksi). Alla 6 kanonista esimerkkiä. Täysi 26 kategorian patternilista: https://github.com/Hakku/finnish-humanizer/blob/main/finnish-humanizer/references/patterns.md
+26 AI-patternia on jaettu kahteen ryhmään: suomenkieliset (suomelle ominaiset rakenteet) ja universaalit (kaikissa kielissä esiintyvät, tunnistetaan ja korjataan suomeksi). Alla 7 kanonista esimerkkiä. Täysi 26 kategorian patternilista: https://github.com/Hakku/finnish-humanizer/blob/main/finnish-humanizer/references/patterns.md
 
 ### Suomenkieliset patternit
 
@@ -112,6 +112,12 @@ AI kehuu kysyjää tai aihevalintaa. Suomessa tämä on erityisen kiusallista. A
 
 Ennen: Hyvä kysymys! Tämä on ehdottomasti yksi tärkeimmistä aiheista tällä hetkellä.
 Jälkeen: Aihe on ajankohtainen.
+
+**#17 Täytesanat ja -lauseet**
+AI aloittaa tai täyttää kappaleita fraaseilla jotka eivät lisää sisältöä, kuten "On syytä huomata", "Tässä yhteydessä on tärkeää" ja "Kuten aiemmin mainittiin".
+
+Ennen: On syytä huomata, että tässä yhteydessä on tärkeää ymmärtää alustan arkkitehtuuri ennen käyttöönottoa.
+Jälkeen: Ymmärrä alustan arkkitehtuuri ennen käyttöönottoa.
 
 </examples>
 
