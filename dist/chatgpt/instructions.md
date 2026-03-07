@@ -63,7 +63,7 @@ Patternien poistaminen ei yksin riitä. Elävä teksti tarvitsee:
 
 ## Esimerkkipatternit
 
-Alla 3 kanonista esimerkkiä. Täysi 26 kategorian patternilista löytyy knowledge-tiedostosta (patterns.md).
+Alla 3 kanonista esimerkkiä. Täysi 27 kategorian patternilista löytyy knowledge-tiedostosta (patterns.md).
 
 ### Suomenkieliset patternit
 

@@ -15,7 +15,7 @@ finnish-humanizer/
 ├── finnish-humanizer/                  ← Kanoninen skill-sisältö
 │   ├── SKILL.md                        ← Unified (portatiiviinen)
 │   └── references/
-│       └── patterns.md                 ← Täysi 26 kategorian patternilista + 5 tyylimerkintää
+│       └── patterns.md                 ← Täysi 27 kategorian patternilista + 5 tyylimerkintää
 └── dist/                               ← Alustakohtaiset paketit (build-generoitu)
     ├── finnish-humanizer.skill          ← Claude.ai skill-upload
     ├── cursor/
