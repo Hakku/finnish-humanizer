@@ -56,7 +56,7 @@ Patternien poistaminen ei yksin riitä. Elävä teksti tarvitsee:
 <examples>
 ## Esimerkkipatternit
 
-Alla 3 kanonista esimerkkiä. Täysi 26 kategorian patternilista: https://github.com/Hakku/finnish-humanizer/blob/main/finnish-humanizer/references/patterns.md
+Alla 3 kanonista esimerkkiä. Täysi 27 kategorian patternilista: https://github.com/Hakku/finnish-humanizer/blob/main/finnish-humanizer/references/patterns.md
 
 ### Suomenkieliset patternit
 
