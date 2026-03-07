@@ -1,6 +1,6 @@
 # Finnish Humanizer: Täysi patternilista
 
-Kaikki 26 AI-patternia esimerkkeineen. Kanoninen lähde — SKILL.md viittaa tähän tiedostoon.
+Kaikki 27 AI-patternia esimerkkeineen. Kanoninen lähde — SKILL.md viittaa tähän tiedostoon.
 
 ## Sisällysluettelo
 
@@ -32,6 +32,7 @@ Kaikki 26 AI-patternia esimerkkeineen. Kanoninen lähde — SKILL.md viittaa tä
   - [24. Negatiivinen rinnastus](#24-negatiivinen-rinnastus)
   - [25. Keinotekoiset skaalaviittaukset](#25-keinotekoiset-skaalaviittaukset)
   - [26. Tietokatkos-vastuuvapauslausekkeet](#26-tietokatkos-vastuuvapauslausekkeet)
+  - [27. Tasainen rytmi (LLM-prosa)](#27-tasainen-rytmi-llm-prosa)
 - [Tyylimerkinnät](#tyylimerkinnät)
 - [Täysimittainen esimerkki](#täysimittainen-esimerkki)
 
@@ -276,6 +277,16 @@ Jälkeen: Markkinatilanne on muuttunut viime vuosina.
 Ennen: Saatavilla olevien tietojen perusteella voidaan todeta, että kehitys on ollut positiivista.
 Jälkeen: Kehitys on ollut positiivista.
 
+### 27. Tasainen rytmi (LLM-prosa)
+
+AI tuottaa metronomimaisesti tasapainoisia lauserakenteita: sama rytminen kaava toistuu virkkeestä toiseen. Tyypillinen rakenne: pitkä johdanto + abstrakti substantiivi + selittävä loppu. Yhdistelmä kolmesta muusta patternista (#13 merkittävyyden liioittelu, #17 täytesanat, #21 retorinen symmetria) — mutta niiden yhtäaikainen esiintyminen tekee rytmistä tunnistettavaa jo ensimmäisestä kappaleesta.
+
+Ennen: Nykyaikainen ohjelmistokehitys on merkittävä ja keskeinen osa digitaalista transformaatiota. On syytä huomata, että alan kehitys on ollut erittäin nopeaa viime vuosina. Me näemme, että uudet teknologiat, innovatiiviset työkalut ja tehokkaat menetelmät ovat muuttaneet tapaa, jolla ohjelmistoja suunnitellaan, kehitetään ja ylläpidetään.
+Jälkeen: Ohjelmistokehitys on muuttunut nopeasti. Uudet työkalut ovat muuttaneet tapaa tehdä työtä. Kaikki ei kuitenkaan ole vielä selvää.
+
+Ennen: Asiakaspalvelu on keskeinen ja tärkeä osa yrityksen toimintaa. On huomattava, että laadukas palvelu luo merkittävän pohjan pitkäaikaisille asiakassuhteille. Voidaan todeta, että panostaminen asiakaspalveluun, henkilöstön kouluttamiseen ja prosessien kehittämiseen tuottaa tuloksia pitkällä aikavälillä.
+Jälkeen: Asiakaspalvelu ratkaisee. Hyvä palvelu pitää asiakkaat — ja se näkyy tuloksessa.
+
 ---
 
 ## Tyylimerkinnät
@@ -328,3 +339,4 @@ Nämä eivät ole patterneita vaan muotoiluvalintoja joita AI suosii:
 | 19 | Epämääräiset viittaukset | "Tutkimukset osoittavat" → nimetty lähde |
 | 20 | "Haasteista huolimatta" | Poistettu kaava, haasteet jätetty auki |
 | 21 | Kolmen sääntö | Kolmen ryhmät karsittu |
+| 27 | Tasainen rytmi | Monotoninen lauserakenne rikottu, rytmi vaihtelee |
