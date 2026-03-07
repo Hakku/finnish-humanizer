@@ -249,11 +249,6 @@ Generoi dist-tiedostot kanonisesta lähteestä (`finnish-humanizer/SKILL.md`):
 py build.py
 ```
 
-Tarkista GitHub-viittausten saatavuus pushin jälkeen:
-
-```bash
-py build.py --verify
-```
 
 Arkkitehtuuripäätökset ja eval-kehys: [DEVELOPMENT.md](DEVELOPMENT.md).
 
