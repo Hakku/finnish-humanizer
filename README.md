@@ -16,13 +16,24 @@ Supports 15 platforms: Claude Code, Claude.ai, Cursor, GitHub Copilot, Windsurf,
 
 Tunnistaa ja poistaa AI-generoidun suomenkielisen tekstin tunnusmerkit.
 
+## Sisältö
+
+- [Ongelma](#ongelma)
+- [Ratkaisu](#ratkaisu)
+- [Tuetut alustat](#tuetut-alustat)
+- [Asennus](#asennus)
+- [Käyttö](#käyttö)
+- [Rajoitukset](#rajoitukset)
+- [Kehitys](#kehitys)
+- [Lisenssi](#lisenssi)
+
 ## Ongelma
 
 AI-generoitu suomi on tunnistettavaa: passiivin ylikäyttö, puuttuvat partikkelit, käännösrakenteet, mielistelevä sävy. Samat patternit toistuvat mallista riippumatta.
 
 ## Ratkaisu
 
-26 AI-patternia (12 suomenkielistä + 14 universaalia) ja 5 tyylimerkintää. Näillä teksti muunnetaan luonnolliseksi suomeksi. Ei käännä, ei yksinkertaista. Poistaa vain AI-tunnusmerkit ja tuo kirjoittajan äänen esiin.
+27 AI-patternia (12 suomenkielistä + 15 universaalia) ja 5 tyylimerkintää. Näillä teksti muunnetaan luonnolliseksi suomeksi. Ei käännä, ei yksinkertaista. Poistaa vain AI-tunnusmerkit ja tuo kirjoittajan äänen esiin.
 
 **Ennen:**
 > Tämä on erittäin merkittävä kehitysaskel, joka tulee vaikuttamaan laajasti alan tulevaisuuteen. On syytä huomata, että kyseinen innovaatio tarjoaa lukuisia mahdollisuuksia eri sidosryhmille.
@@ -194,7 +205,7 @@ Vaihtoehtoisesti: kopioi `finnish-humanizer/SKILL.md`:n sisältö projektin **Cu
 <details>
 <summary><strong>AGENTS.md</strong></summary>
 
-Projektitason AI-agenttiohjeet. Kopioi `dist/agents/AGENTS.md` projektin juureen. Kaikki AI-agentit (Claude Code, Cursor, Copilot jne.) tunnistavat AGENTS.md-tiedostoja ja lukevat ne automaattisesti.
+Projektitason AI-agenttiohjeet. Kopioi `dist/agents/AGENTS.md` projektin juureen. Kaikki AI-agentit (Claude Code, Cursor, Copilot jne.) lukevat AGENTS.md-tiedoston automaattisesti.
 
 </details>
 
