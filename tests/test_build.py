@@ -19,6 +19,11 @@ MINIMAL_SKILL = """\
 ---
 name: test-skill
 description: Lyhyt kuvaus. Toinen lause.
+license: MIT
+allowed-tools: Read
+metadata:
+  author: x
+  version: 0.0
 ---
 
 # Body
@@ -63,6 +68,10 @@ Kuvaus.
 - [Suomenkieliset](#suomenkieliset)
 
 ---
+
+### 1. Testi
+
+Sisältö.
 
 ## Suomenkieliset
 
@@ -253,6 +262,11 @@ class TestBuildSkill(TempDirTestCase):
         self.assertIsNotNone(m, "description ei löydy zip-tiedostosta")
         self.assertLessEqual(len(m.group(1).strip()), 200)
 
+        self.assertNotIn("license:", content)
+        self.assertNotIn("allowed-tools:", content)
+        self.assertNotIn("metadata:", content)
+        self.assertNotIn("  author:", content)
+
     def test_build_skill_long_description_truncated(self):
         """Description over 200 chars is truncated to ≤200 and ends with '...'."""
         skill_md = self.tmpdir / "SKILL.md"
@@ -280,6 +294,41 @@ class TestBuildSkill(TempDirTestCase):
         """Single --- raises ValueError."""
         skill_md = self.tmpdir / "SKILL.md"
         skill_md.write_text(SKILL_ONE_DASH, encoding="utf-8")
+        patterns_md = self.tmpdir / "patterns.md"
+        patterns_md.write_text("# Patternit\n", encoding="utf-8")
+        dist = self.tmpdir / "dist"
+        dist.mkdir()
+        with (
+            patch.object(build, "SKILL_MD", skill_md),
+            patch.object(build, "PATTERNS_MD", patterns_md),
+            patch.object(build, "DIST", dist),
+        ):
+            with self.assertRaises(ValueError):
+                build.build_skill()
+
+    def test_build_skill_oserror(self):
+        """OSError during zip write raises RuntimeError and cleans up."""
+        skill_md = self.tmpdir / "SKILL.md"
+        skill_md.write_text(MINIMAL_SKILL, encoding="utf-8")
+        patterns_md = self.tmpdir / "patterns.md"
+        patterns_md.write_text("# Patternit\n", encoding="utf-8")
+        dist = self.tmpdir / "dist"
+        dist.mkdir()
+        with (
+            patch.object(build, "SKILL_MD", skill_md),
+            patch.object(build, "PATTERNS_MD", patterns_md),
+            patch.object(build, "DIST", dist),
+            patch.object(zipfile.ZipFile, "writestr", side_effect=OSError("disk full")),
+        ):
+            with self.assertRaises(RuntimeError):
+                build.build_skill()
+        skill_path = dist / "finnish-humanizer.skill"
+        self.assertFalse(skill_path.exists())
+
+    def test_build_skill_missing_description(self):
+        """build_skill() raises ValueError when description is missing."""
+        skill_md = self.tmpdir / "SKILL.md"
+        skill_md.write_text(SKILL_NO_DESCRIPTION, encoding="utf-8")
         patterns_md = self.tmpdir / "patterns.md"
         patterns_md.write_text("# Patternit\n", encoding="utf-8")
         dist = self.tmpdir / "dist"
@@ -332,13 +381,16 @@ class TestChatGPTPatterns(TempDirTestCase):
             patch.object(build, "PATTERNS_MD", patterns_md),
             patch.object(build, "DIST", dist),
         ):
-            build.build_chatgpt_patterns()
+            _chars, count = build.build_chatgpt_patterns()
+
+        self.assertEqual(count, 1)
 
         out = dist / "chatgpt" / "patterns.md"
         content = out.read_text(encoding="utf-8")
 
         self.assertNotIn("Sisällysluettelo", content)
         self.assertIn("instructions.md sisältää kanonisia esimerkkejä", content)
+        self.assertIn("Kaikki 1 AI-patternia", content)
         self.assertTrue(
             content.startswith("# Finnish Humanizer: Täysi patternilista"),
             "Intro-otsikko puuttuu",
@@ -400,7 +452,7 @@ class TestCheckManualSync(TempDirTestCase):
         with patch.object(build, "MANUAL_FILES", [missing]):
             self.assertEqual(build.check_manual_sync(27), [])
 
-    def test_multiple_stale_occurrences(self):
+    def test_two_stale_occurrences_in_same_file(self):
         """Multiple stale counts in one file each produce a warning."""
         f = self.tmpdir / "dev.md"
         f.write_text(
@@ -410,6 +462,30 @@ class TestCheckManualSync(TempDirTestCase):
         with patch.object(build, "MANUAL_FILES", [f]):
             warnings = build.check_manual_sync(27)
         self.assertEqual(len(warnings), 2)
+
+    def test_patternin_lista_matched(self):
+        """Genitive form 'patternin lista' triggers warning."""
+        f = self.tmpdir / "doc.md"
+        f.write_text("Täysi 26 patternin lista löytyy...", encoding="utf-8")
+        with patch.object(build, "MANUAL_FILES", [f]):
+            warnings = build.check_manual_sync(27)
+        self.assertEqual(len(warnings), 1)
+        self.assertIn("26", warnings[0])
+
+    def test_mixed_stale_and_correct(self):
+        """File with one correct and one stale count: 1 warning."""
+        f = self.tmpdir / "mixed.md"
+        f.write_text("27 patternia oikein. Mutta 26 AI-patternia vanhaa.", encoding="utf-8")
+        with patch.object(build, "MANUAL_FILES", [f]):
+            warnings = build.check_manual_sync(27)
+        self.assertEqual(len(warnings), 1)
+
+    def test_no_matching_phrases(self):
+        """File with no count phrases: no warnings."""
+        f = self.tmpdir / "nodoc.md"
+        f.write_text("Ei viittauksia patternimääriin tässä.", encoding="utf-8")
+        with patch.object(build, "MANUAL_FILES", [f]):
+            self.assertEqual(build.check_manual_sync(27), [])
 
 
 if __name__ == "__main__":

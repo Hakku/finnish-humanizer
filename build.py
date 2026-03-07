@@ -19,6 +19,10 @@ DIST = REPO / "dist"
 MANUAL_FILES = [
     REPO / "dist" / "chatgpt" / "instructions.md",
     REPO / "DEVELOPMENT.md",
+    SKILL_MD,                                        # ← 3.
+    REPO / "dist" / "chatgpt" / "GPT-SPEC.md",      # ← 4.
+    REPO / "README.md",                              # ← 5.
+    PATTERNS_MD,                                     # ← 6.
 ]
 
 GITHUB_REPO = "https://github.com/Hakku/finnish-humanizer"
@@ -67,7 +71,7 @@ def _count_patterns() -> int:
 def check_manual_sync(pattern_count: int) -> list:
     """Return warnings for manual files with stale pattern counts."""
     stale_re = re.compile(
-        r"\b(\d+)\s+(?:AI-patternia|kategorian patternilista|patternia)"
+        r"\b(\d+)\s+(?:AI-patternia|kategorian patternilista|patternia|patternin lista)"
     )
     warnings = []
     for path in MANUAL_FILES:
@@ -80,8 +84,9 @@ def check_manual_sync(pattern_count: int) -> list:
                     display = path.relative_to(REPO)
                 except ValueError:
                     display = path
+                line_num = text[:m.start()].count('\n') + 1
                 warnings.append(
-                    f"  [!] {display}: '{m.group(0)}'"
+                    f"  [!] {display}:{line_num}: '{m.group(0)}'"
                     f" — pitäisi olla {pattern_count}"
                 )
     return warnings
@@ -95,7 +100,7 @@ def _truncate_desc(desc_full: str, limit: int = 200) -> str:
     return short
 
 
-def parse_skill():
+def parse_skill() -> tuple[str, str]:
     """Return (body, short_description) from SKILL.md."""
     text = SKILL_MD.read_text(encoding="utf-8")
     parts = text.split("---", 2)
@@ -115,7 +120,7 @@ def parse_skill():
     return body, desc_short
 
 
-def build_platforms(body, desc):
+def build_platforms(body: str, desc_short: str) -> list[tuple[str, str, int, str]]:
     """Generate platform-specific dist files."""
     dist_body = body.replace(LOCAL_REF, GITHUB_PATTERNS_URL)
     results = []
@@ -126,7 +131,7 @@ def build_platforms(body, desc):
 
         fm_fn = cfg.get("frontmatter")
         if fm_fn:
-            fm_lines = fm_fn(desc)
+            fm_lines = fm_fn(desc_short)
             content = "---\n" + "\n".join(fm_lines) + "\n---\n\n" + dist_body
         else:
             content = dist_body
@@ -142,9 +147,10 @@ def build_platforms(body, desc):
     return results
 
 
-def build_chatgpt_patterns():
+def build_chatgpt_patterns() -> tuple[int, int]:
     """Generate dist/chatgpt/patterns.md: source copy without TOC, fixed intro."""
     text = PATTERNS_MD.read_text(encoding="utf-8")
+    count = len(re.findall(r"^### \d+\.", text, re.MULTILINE))
 
     # Remove TOC — fail build if not found (structure guard)
     text, n = re.subn(
@@ -156,14 +162,14 @@ def build_chatgpt_patterns():
     )
     if n == 0:
         raise ValueError(
-            "build_chatgpt_patterns: TOC-korvaus epäonnistui — patterns.md:n rakenne muuttunut"
+            "build_chatgpt_patterns: TOC-korvaus epäonnistui"
+            " — odotettu: '## Sisällysluettelo\\n...\\n---\\n'"
         )
 
     # Structural intro replace: swap everything before first ## heading
     first_pattern = text.find("\n## ")
     if first_pattern == -1:
         raise ValueError("build_chatgpt_patterns: ensimmäistä ## -otsikkoa ei löydy")
-    count = _count_patterns()
     intro = (
         "# Finnish Humanizer: Täysi patternilista\n\n"
         f"Kaikki {count} AI-patternia esimerkkeineen + 5 tyylimerkintää."
@@ -175,15 +181,16 @@ def build_chatgpt_patterns():
     out = DIST / "chatgpt" / "patterns.md"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(text, encoding="utf-8", newline="\n")
-    return len(text)
+    return len(text), count
 
 
-def build_skill():
+def build_skill() -> Path:
     """Build dist/finnish-humanizer.skill for Claude.ai.
 
     Claude.ai skill upload only accepts name + description in YAML frontmatter.
     Strip license, allowed-tools, metadata before packaging.
     """
+    parse_skill()  # validoi delimiter + description — nostaa ValueError jos puuttuu
     text = SKILL_MD.read_text(encoding="utf-8")
     parts = text.split("---", 2)
     if len(parts) < 3:
@@ -219,12 +226,12 @@ def main():
     for name, path, chars, warn in results:
         print(f"  {name:12s} {path:50s} {chars:>6,} merkkia{warn}")
 
-    chars = build_chatgpt_patterns()
+    chars, pattern_count = build_chatgpt_patterns()
     print(f"  {'chatgpt':12s} {'chatgpt/patterns.md':50s} {chars:>6,} merkkia")
     print("[!] dist/chatgpt/ manuaaliset tiedostot (ei buildattuja):")
     print("    instructions.md -- erilainen rakenne, ei XML-tageja")
-    print("    GPT-SPEC.md     -- GPT-konfiguraatio")
     print("    test-texts.md   -- testiaineisto")
+    print("    # test-texts.md ei ole MANUAL_FILES:ssä — sisältää testitekstejä, ei lukuviittauksia")
     print("    Tarkista synkroni kun SKILL.md body muuttuu.")
 
     skill_path = build_skill()
@@ -233,7 +240,6 @@ def main():
         print(f"  Sisalto: {', '.join(zf.namelist())}")
 
     print("\nManuaalitiedostojen synkronitarkistus:")
-    pattern_count = _count_patterns()
     sync_warnings = check_manual_sync(pattern_count)
     if sync_warnings:
         for w in sync_warnings:

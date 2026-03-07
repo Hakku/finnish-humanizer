@@ -74,7 +74,7 @@ SKILL.md käyttää XML-tageja ylätason jäsentelyyn (`<role>`, `<finnish_voice
 1. Lisää pattern `references/patterns.md`:hen oikeaan kategoriaan (suomenkielinen / universaali)
 2. Lisää Ennen/Jälkeen-esimerkit (vähintään yksi pari)
 3. Päivitä sisällysluettelo
-4. Jos pattern on erityisen yleinen tai tärkeä, harkitse sen lisäämistä myös `SKILL.md`:n 7 esimerkin joukkoon (korvaa vähiten hyödyllinen)
+4. Jos pattern on erityisen yleinen tai tärkeä, harkitse sen lisäämistä SKILL.md:n **3 esimerkin** joukkoon (#1, #4, #17)
 
 ### Patternin muokkaaminen
 

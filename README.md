@@ -58,7 +58,7 @@ Täysi patternilista esimerkkeineen: [`finnish-humanizer/references/patterns.md`
 | Bolt.new | Editori | `dist/generic/finnish-humanizer.md` |
 | Amazon Q | Editori | `dist/generic/finnish-humanizer.md` |
 | Claude.ai | Chat | `dist/finnish-humanizer.skill` |
-| ChatGPT | Chat | Custom GPT / `dist/generic/` |
+| ChatGPT | Chat | `dist/chatgpt/instructions.md` |
 | Gemini Gems | Chat | `dist/generic/finnish-humanizer.md` |
 | Perplexity Spaces | Chat | `dist/generic/finnish-humanizer.md` |
 | AGENTS.md | Cross | `dist/agents/AGENTS.md` |
@@ -176,8 +176,11 @@ Vaihtoehtoisesti: kopioi `finnish-humanizer/SKILL.md`:n sisältö projektin **Cu
 
 **ChatGPT Projects:**
 1. Luo uusi projekti ChatGPT:ssä
-2. Lataa `dist/generic/finnish-humanizer.md` ja `finnish-humanizer/references/patterns.md` projektin tiedostoiksi
-3. Ohjeet aktivoituvat projektin keskusteluissa
+2. Lataa `dist/chatgpt/instructions.md` projektin Custom instructions -kenttään
+3. Lataa `dist/chatgpt/patterns.md` projektin tiedostoiksi (ChatGPT-optimoitu patternilista)
+4. Ohjeet aktivoituvat projektin keskusteluissa
+
+Huom: `instructions.md` on ChatGPT-optimoitu rakenne (ei XML-tageja)
 
 </details>
 
@@ -235,6 +238,7 @@ Muita toimivia komentoja:
 ### Analysointi vs. suora korjaus
 
 - **Oletus:** Luonnollistaa tekstin suoraan ja palauttaa korjatun version + muutosyhteenvedon.
+- **Pitkä teksti (>500 sanaa):** Analysoi automaattisesti ensin (näyttää löydetyt patternit), sitten luonnollistaa. Estää massiiviset sokkorewritet.
 - **"Analysoi ensin":** Palauttaa vain löydetyt AI-patternit ilman korjauksia, voit valita mitkä korjataan.
 
 ### Muutosyhteenveto
