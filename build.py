@@ -67,7 +67,7 @@ def _count_patterns() -> int:
 def check_manual_sync(pattern_count: int) -> list:
     """Return warnings for manual files with stale pattern counts."""
     stale_re = re.compile(
-        r"(?<!Loput )\b(\d+)\s+(?:AI-patternia|kategorian patternilista|patternia)"
+        r"\b(\d+)\s+(?:AI-patternia|kategorian patternilista|patternia)"
     )
     warnings = []
     for path in MANUAL_FILES:

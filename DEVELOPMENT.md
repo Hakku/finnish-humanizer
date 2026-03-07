@@ -61,7 +61,7 @@ Yksi kanoninen `SKILL.md` toimii kaikissa ympäristöissä (Claude.ai, Claude Co
 - **#4 Puuttuvat partikkelit** — kielikohtainen, AI jättää nämä aina pois
 - **#17 Täytesanat ja -lauseet** — universaali, helppo tunnistaa
 
-Loput 24 patternia ovat `references/patterns.md`:ssä.
+Muut patternit ovat `references/patterns.md`:ssä.
 
 ### XML-tagit
 
