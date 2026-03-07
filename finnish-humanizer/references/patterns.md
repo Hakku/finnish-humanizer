@@ -17,7 +17,7 @@ Kaikki 27 AI-patternia esimerkkeineen. Kanoninen lähde — SKILL.md viittaa tä
   - [10. Virkakielisyys väärässä kontekstissa](#10-virkakielisyys-väärässä-kontekstissa)
   - [11. Astevaihtelun välttely](#11-astevaihtelun-välttely)
   - [12. Liiallinen kohteliaisuus](#12-liiallinen-kohteliaisuus)
-- [Universaalit AI-patternit suomeksi (13–26)](#universaalit-ai-patternit-suomeksi)
+- [Universaalit AI-patternit suomeksi (13–27)](#universaalit-ai-patternit-suomeksi)
   - [13. Merkittävyyden liioittelu](#13-merkittävyyden-liioittelu)
   - [14. Mainosmainen kieli](#14-mainosmainen-kieli)
   - [15. Mielistelevä sävy](#15-mielistelevä-sävy)
