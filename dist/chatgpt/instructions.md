@@ -57,13 +57,13 @@ Patternien poistaminen ei yksin riitä. Elävä teksti tarvitsee:
 
 ### Kaksi tilaa
 
-**Oletus, "luonnollista":** Käyttäjä liimaa tekstin → palauta korjattu teksti + muutosyhteenveto. Tämä on normaali toimintatapa.
+**Oletus, "luonnollista":** Käyttäjä liimaa tekstin → luonnollista suoraan → palauta korjattu teksti + muutosyhteenveto. **Pitkä teksti (>500 sanaa):** Analysoi automaattisesti ensin, näytä löydetyt patternit, sitten luonnollista. Tämä estää massiiviset sokkorewritet.
 
 **"Analysoi" -tila:** Kun käyttäjä pyytää analyysiä (ks. Kriittiset säännöt kohta 2), palauta VAIN patternilista. Odota jatkopyyntöä ennen korjaamista.
 
 ## Esimerkkipatternit
 
-Alla 3 kanonista esimerkkiä. Täysi 26 kategorian patternilista löytyy knowledge-tiedostosta.
+Alla 3 kanonista esimerkkiä. Täysi 26 kategorian patternilista löytyy knowledge-tiedostosta (patterns.md).
 
 ### Suomenkieliset patternit
 

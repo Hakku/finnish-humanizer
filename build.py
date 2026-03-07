@@ -34,7 +34,7 @@ PLATFORMS = {
             f"description: {d}",
         ],
     },
-    "windsurf": {"path": "windsurf/finnish-humanizer.md"},
+    "windsurf": {"path": "windsurf/finnish-humanizer.md", "char_limit": 12_000},
     "cline": {"path": "cline/finnish-humanizer.md"},
     "continue": {
         "path": "continue/finnish-humanizer.md",
@@ -50,14 +50,20 @@ PLATFORMS = {
     "agents": {"path": "agents/AGENTS.md"},
 }
 
-CHAR_LIMITS = {"windsurf": 12_000}
-
 CHATGPT_INTRO = (
     "# Finnish Humanizer: Täysi patternilista\n\n"
     "Kaikki 26 AI-patternia esimerkkeineen + 5 tyylimerkintää."
     " instructions.md sisältää kanonisia esimerkkejä; tämä tiedosto sisältää loput.\n\n"
     "---"
 )
+
+
+def _truncate_desc(desc_full: str, limit: int = 200) -> str:
+    """Return at most 2 sentences from desc_full, truncated to limit chars."""
+    short = ". ".join(desc_full.split(". ")[:2]).rstrip(".") + "."
+    if len(short) > limit:
+        short = short[: limit - 3] + "..."
+    return short
 
 
 def parse_skill():
@@ -69,10 +75,12 @@ def parse_skill():
 
     fm = parts[1]
     match = re.search(r"^description:\s*(.+)$", fm, re.MULTILINE)
-    desc_full = match.group(1).strip() if match else ""
-    if not desc_full:
+    if not match:
         raise ValueError("SKILL.md: description-kenttä puuttuu frontmatterista")
-    desc_short = ". ".join(desc_full.split(". ")[:2]) + "."
+    desc_full = match.group(1).strip()
+    if not desc_full:
+        raise ValueError("SKILL.md: description-kenttä on tyhjä")
+    desc_short = _truncate_desc(desc_full)
 
     body = parts[2].lstrip("\n")
     return body, desc_short
@@ -97,8 +105,9 @@ def build_platforms(body, desc):
         out.write_text(content, encoding="utf-8", newline="\n")
         chars = len(content)
         warn = ""
-        if name in CHAR_LIMITS and chars > CHAR_LIMITS[name]:
-            warn = f"  [!] RAJA YLITETTY ({CHAR_LIMITS[name]:,})"
+        limit = cfg.get("char_limit")
+        if limit and chars > limit:
+            warn = f"  [!] RAJA YLITETTY ({limit:,})"
         results.append((name, cfg["path"], chars, warn))
 
     return results
@@ -123,8 +132,9 @@ def build_chatgpt_patterns():
 
     # Structural intro replace: swap everything before first ## heading
     first_pattern = text.find("\n## ")
-    if first_pattern > 0:
-        text = CHATGPT_INTRO + text[first_pattern:]
+    if first_pattern == -1:
+        raise ValueError("build_chatgpt_patterns: ensimmäistä ## -otsikkoa ei löydy")
+    text = CHATGPT_INTRO + text[first_pattern:]
 
     out = DIST / "chatgpt" / "patterns.md"
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -150,16 +160,17 @@ def build_skill():
             kept.append(line)
         elif re.match(r"^description:", line):
             desc = line.split(":", 1)[1].strip()
-            short = ". ".join(desc.split(". ")[:2]) + "."
-            if len(short) > 200:
-                short = short[:197] + "..."
-            kept.append(f"description: {short}")
+            kept.append(f"description: {_truncate_desc(desc)}")
     stripped = "---\n" + "\n".join(kept) + "\n---" + parts[2]
 
     skill_path = DIST / "finnish-humanizer.skill"
-    with zipfile.ZipFile(skill_path, "w", zipfile.ZIP_DEFLATED) as zf:
-        zf.writestr("finnish-humanizer/SKILL.md", stripped)
-        zf.write(PATTERNS_MD, "finnish-humanizer/references/patterns.md")
+    try:
+        with zipfile.ZipFile(skill_path, "w", zipfile.ZIP_DEFLATED) as zf:
+            zf.writestr("finnish-humanizer/SKILL.md", stripped)
+            zf.write(PATTERNS_MD, "finnish-humanizer/references/patterns.md")
+    except OSError as e:
+        skill_path.unlink(missing_ok=True)
+        raise RuntimeError(f"Skill zip -kirjoitus epäonnistui: {e}") from e
     return skill_path
 
 
