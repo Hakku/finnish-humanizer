@@ -4,7 +4,7 @@ description: Tunnistaa ja poistaa AI-generoidun suomenkielisen tekstin tunnusmer
 license: MIT
 allowed-tools: Read Write Edit Glob Grep AskUserQuestion
 metadata:
-  author: Hakku
+  author: Harri Sipola
   version: 1.3.0
 ---
 
